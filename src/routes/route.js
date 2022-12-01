@@ -1,4 +1,4 @@
-const siteRouter = require('./site')
+const siteRouter = require('./routers/site')
 
 function route(app) {
 

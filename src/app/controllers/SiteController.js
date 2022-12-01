@@ -2,7 +2,9 @@ class siteController {
 
     // GET homepage
     home(req, res, next) {
-        res.render('home')
+        res.render('home', {
+            home: true,
+        })
     }
 
     // GET about

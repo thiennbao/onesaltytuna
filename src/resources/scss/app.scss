@@ -1,0 +1,375 @@
+@import "variables";
+
+// General
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+.active {
+    color: $main-color !important;
+}
+body {
+    margin: 0;
+    Font-family: 'Segoe UI';
+    margin: auto;
+}
+a {
+    text-decoration: none;
+}
+#about, #menu, #news, footer, #about-special, #menu-menu, #contact-form {
+    margin: 5%;
+}
+
+// Site's Wallpaper
+[id$=wallpaper] {
+    position: relative;
+    top: 60px;
+    height: 250px;
+    color: white;
+    font-size: 20px;
+    background-color: gray;
+    overflow: hidden;
+}
+[id$=wallpaper] img {
+    height: 100%;
+    filter: brightness(0.25);
+}
+[id$=wallpaper] h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 1.85vw;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    background-image: url('/img/general/scrollbar.jpg');
+    background-size: 300%;
+    background-position: center;
+}
+::-webkit-scrollbar-thumb:active {
+    background-position: left;
+}
+
+// Headings
+.heading {
+    position: relative;
+    font-size: 25px;
+    overflow: visible;
+}
+.heading::before {
+    content: '----- Wellcome to';
+    color: $main-color;
+    font-size: 20px;
+    position: absolute;
+    bottom: 100%;
+}
+
+// Navigation Bar
+#nav {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    font-size: 10px;
+    background-color: white;
+    font-weight: bold;
+    z-index: 3;
+    opacity: 0.9;
+    box-shadow: 0 0px 3px gray;
+    position: fixed;
+}
+#nav #logo {
+    width: 25%;
+    overflow-y: hidden;
+    height: 75%;
+    margin: auto;
+}
+#nav #logo img {
+    height: 100%;
+}
+#nav nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+#nav a {
+    line-height: 60px;
+    color: black;
+}
+#nav #account {
+    // display: none;
+    background-color: white;
+}
+
+// Footer
+footer {
+    overflow: hidden;
+    font-size: 12px;
+}
+footer h3 {
+    color: $main-color;
+}
+#footer-description {
+    text-align: center;
+}
+#footer-description img {
+    width: 20%;
+}
+#footer-description p {
+    display: none;
+}
+#footer-menu a {
+    float: left;
+    margin: 5px 0;
+    width: 50%;
+    color: black;
+}
+#footer-contact {
+    overflow-x: visible;
+}
+#footer-contact a {
+    display: block;
+    color: black;
+    margin: 1em 5px;
+    overflow-x: visible;
+}
+#footer-contact a svg {
+    color: $main-color;
+}
+#footer-subscribe {
+    overflow: visible;
+}
+#footer-subscribe div {
+    line-height: 40px;
+    overflow: visible;
+    width: 100%;
+}
+#footer-subscribe div a {
+    position: relative;
+    color: $main-color;
+    margin: 0 5px;
+}
+#footer-subscribe div svg {
+    width: 20px;
+    height: 20px;
+}
+#footer-subscribe div .tooltip {
+    visibility: hidden;
+    position: absolute;
+}
+
+
+// For small tablet & large phone
+@media screen and (min-width: 600px) {
+
+    // General
+    .heading {
+        font-size: 30px;
+    }
+    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form {
+        margin: 10%;
+    }
+    // Site's Wallpaper
+    [id$=wallpaper] img {
+        width: 100%;
+    }
+
+    // Navigation Bar
+    #nav {
+        padding: 0 5%;
+        font-size: 12px;
+    }
+    #nav #logo {
+        width: 20%;
+    }
+    #nav nav {
+        width: 45%;
+    }
+    #nav #account {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 35%;
+        flex-direction: row-reverse;
+    }
+    #nav #account a {
+        line-height: unset !important;
+        margin: auto 0;
+        padding: 0 3%;
+        overflow: visible;
+    }
+    #nav #account #cartNav {
+        background-color: $main-color;
+        color: white;
+        padding: 8px 15px;
+        margin-left: 3%;
+    }
+
+    // Footer
+    footer {
+        font-size: 14px;
+    }
+    #footer-description {
+        text-align: left;
+    }
+    #footer-description p {
+        display: block;
+        width: 70%;
+    }
+    #footer-description img {
+        width: 10%;
+    }
+    #footer-menu a {
+        float: left;
+        margin: 5px 0;
+        width: 34%;
+    }
+    #footer-subscribe div svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+// For Tablet
+@media screen and (min-width: 768px) {
+
+    // General
+    .heading {
+        position: relative;
+        font-size: 35px;
+    }
+    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form {
+        margin: 5% 10%;
+    }
+    // Site's Wallpaper
+    [id$=wallpaper] {
+        top: 80px;
+        height: 350px;
+    }
+
+    // Navigation Bar
+    #nav {
+        height: 80px;
+        padding: 0 10%;
+        font-size: 14px;
+        position: absolute;
+    }
+    #nav #logo img {
+        cursor: pointer;
+    }
+    #nav a {
+        line-height: 80px;
+    }
+    #nav #account #cartNav {
+        padding: 8px 30px;
+    }
+
+    // Footer
+    footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        height: auto;
+    }
+    footer div {
+        width: 23%;
+    }
+    #footer-description img {
+        width: 20%;
+        cursor: pointer;
+    }
+    #footer-description p {
+        width: 100%;
+    }
+    #footer-menu a {
+        width: 50%;
+    }
+    #footer-subscribe div a {
+        margin: 0 2px;
+    }
+    
+}
+
+// For PC
+@media screen and (min-width: 992px) {
+
+    // General
+    @keyframes change_color {
+        to {color: $main-color}
+    }
+    @keyframes change_bgcolor {
+        to {background-color: #A5050A; color: white;}
+    }
+
+    // Navigation bar
+    #nav a:hover {
+        animation: change_color 0.25s forwards;
+    }
+    #nav #account a {
+        cursor: pointer;
+    }
+    @keyframes logo-zoom {
+        from {height: 80%;}
+        to {height: 100%;}
+    }
+    @keyframes head-stick {
+        from {top: -70px;}
+        to {top: 0;}
+    }
+    #nav #account #cartNav:hover {
+        animation: change_bgcolor 0.25s forwards;
+    }
+
+    // Footer
+    #footer-menu a:hover {
+        animation: change_color 0.25s forwards;
+    }
+    #footer-contact a:hover {
+        animation: change_color 0.25s forwards;
+    }
+    #footer-subscribe div a {
+        color: gray;
+        margin: 0 8px;
+        display: inline-block;
+        width: 25px;
+        overflow-x: visible;
+    }
+    #footer-subscribe div .tooltip {
+        overflow: visible;
+        position: absolute;
+        left: 50%;
+        bottom: 120%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        line-height: 20px;
+        width: 160px;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    #footer-subscribe div .tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+    #footer-subscribe div a:hover {
+        color: $main-color;
+    }
+    #footer-subscribe div a:hover .tooltip {
+        visibility: visible;
+    }
+}
