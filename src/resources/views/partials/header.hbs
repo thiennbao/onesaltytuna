@@ -1,26 +1,23 @@
-<div id="nav">
-
+<nav>
     {{!-- Logo --}}
     <div id="logo">
         <a href="\ "><img src="/img/general/logo.png" alt="logo"></a>
     </div>
 
     {{!-- Site navigation --}}
-    <nav>
+    <div id="nav">
         <a href="\ " class="{{#if home}}active{{/if}}">HOME</a>
         <a href="about" class="{{#if about}}active{{/if}}">ABOUT</a>
         <a href="menu" class="{{#if order}}active{{/if}}">MENU</a>
         <a href="contact" class="{{#if contact}}active{{/if}}">CONTACT</a>
-    </nav>
+    </div>
 
     {{!-- Account --}}
     <div id="account">
-
         {{#unless login}}
             <a id="signupNav" href="user/signup" class="{{#if signup}}active{{/if}}">SIGN UP</a>
             <a id="loginNav" href="login" class="{{#if login}}active{{/if}}">LOG IN</a>
         {{/unless}}
-
         {{#if login}}
             <a id="cartNav" href="cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
@@ -30,8 +27,6 @@
             </a>
             <a id="userNav" href="user/{{username}}">HI, {{username}}</a>
         {{/if}}
-
-
     </div>
-    
-</div>
+
+</nav>

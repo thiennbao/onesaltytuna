@@ -72,7 +72,7 @@ a {
 }
 
 // Navigation Bar
-#nav {
+nav {
     display: flex;
     width: 100%;
     height: 60px;
@@ -85,28 +85,33 @@ a {
     box-shadow: 0 0px 3px gray;
     position: fixed;
 }
-#nav #logo {
+nav #logo {
     width: 25%;
     overflow-y: hidden;
     height: 75%;
     margin: auto;
 }
-#nav #logo img {
+nav #logo img {
     height: 100%;
 }
-#nav nav {
-    width: 75%;
+nav #nav {
+    width: 55%;
     display: flex;
     justify-content: space-around;
     background-color: white;
 }
-#nav a {
+nav a {
     line-height: 60px;
     color: black;
 }
-#nav #account {
-    // display: none;
-    background-color: white;
+nav #account {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    width: 20%;
+}
+nav #account #signupNav {
+    display: none;
 }
 
 // Footer
@@ -183,29 +188,29 @@ footer h3 {
     }
 
     // Navigation Bar
-    #nav {
+    nav {
         padding: 0 5%;
         font-size: 12px;
     }
-    #nav #logo {
+    nav #logo {
         width: 20%;
     }
-    #nav nav {
+    nav #nav {
         width: 45%;
     }
-    #nav #account {
-        display: flex;
-        flex-wrap: nowrap;
+    nav #account {
         width: 35%;
-        flex-direction: row-reverse;
     }
-    #nav #account a {
+    nav #account #signupNav {
+        display: block;
+    }
+    nav #account a {
         line-height: unset !important;
         margin: auto 0;
         padding: 0 3%;
         overflow: visible;
     }
-    #nav #account #cartNav {
+    nav #account #cartNav {
         background-color: $main-color;
         color: white;
         padding: 8px 15px;
@@ -255,19 +260,19 @@ footer h3 {
     }
 
     // Navigation Bar
-    #nav {
+    nav {
         height: 80px;
         padding: 0 10%;
         font-size: 14px;
         position: absolute;
     }
-    #nav #logo img {
+    nav #logo img {
         cursor: pointer;
     }
-    #nav a {
+    nav a {
         line-height: 80px;
     }
-    #nav #account #cartNav {
+    nav #account #cartNav {
         padding: 8px 30px;
     }
 
@@ -309,10 +314,10 @@ footer h3 {
     }
 
     // Navigation bar
-    #nav a:hover {
+    nav a:hover {
         animation: change_color 0.25s forwards;
     }
-    #nav #account a {
+    nav #account a {
         cursor: pointer;
     }
     @keyframes logo-zoom {
@@ -323,7 +328,7 @@ footer h3 {
         from {top: -70px;}
         to {top: 0;}
     }
-    #nav #account #cartNav:hover {
+    nav #account #cartNav:hover {
         animation: change_bgcolor 0.25s forwards;
     }
 
