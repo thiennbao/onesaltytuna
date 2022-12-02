@@ -1,10 +1,22 @@
+const mongooseUtil = require('../../util/mongoose')
+const Sushi = require('../models/Sushi')
+
 class siteController {
 
     // GET homepage
     home(req, res, next) {
-        res.render('home', {
-            home: true,
+        Sushi.find({})
+        .then(sushi => {
+            sushi = mongooseUtil.getRandomSushi(sushi, 8)
+            res.render('home', {
+                home: true,
+                sushi: sushi
+            })
         })
+        .catch(err => {
+            res.status(500).send('ERROR !!!')
+        })
+
     }
 
     // GET about

@@ -1,11 +1,14 @@
 const express = require('express')
 const path = require('path')
 const exphbs = require('express-handlebars')
-
+const db = require('./config/db/connection')
 
 const app = express()
 const port = 3000
 
+
+// Connect to DB
+db.connect()
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')))
