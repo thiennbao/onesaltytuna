@@ -22,6 +22,16 @@ var mongooseUtil = {
         return randomSushi
     },
 
+    // Get newest news
+    getNewestNews: function(news, amount) {
+        news = news.map(news => news.toObject())
+        var newest = []
+        for (var i=0; i<amount; i++) {
+            newest[i] = news[i]
+        }
+        return newest
+    },
+
 }
 
 module.exports = mongooseUtil

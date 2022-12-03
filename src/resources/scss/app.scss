@@ -9,6 +9,9 @@
 .active {
     color: $main-color !important;
 }
+input#submit:disabled {
+    background-color: gray !important;
+}
 body {
     margin: 0;
     Font-family: 'Segoe UI';

@@ -8,17 +8,20 @@
 
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/home.css">
+
+    {{#if login}}<link rel="stylesheet" href="/css/login.css">{{/if}}
+    {{#if signup}}<link rel="stylesheet" href="/css/signup.css">{{/if}}
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
     
-    <header>{{#unless noPartial}} {{> header}} {{/unless}}</header>
+    <header>{{#unless noHeader}} {{> header}} {{/unless}}</header>
 
     {{{body}}}
 
-    <footer>{{#unless noPartial}} {{> footer}} {{/unless}}</footer>
+    <footer>{{#unless noHeader}} {{> footer}} {{/unless}}</footer>
 
 </body>
 </html>

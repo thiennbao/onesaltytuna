@@ -18,6 +18,9 @@ app.engine('hbs', exphbs.engine({extname: 'hbs'}))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
 
+// Data
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 // Route init
 const route = require('./routes/route')
