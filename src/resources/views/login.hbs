@@ -1,0 +1,15 @@
+<div id="login">
+    <div id="login-form">
+        <h3>Log in</h3>
+        <form method="POST" action="login">
+            <input id="username" type="text" name="username" placeholder="User name" onblur="validate()">
+            <label for="username"> {{#if notFound}} User name is not found {{/if}} </label>
+            <input id="password" type="password" name="password" placeholder="Password" onblur="validate()">
+            <label for="password"> {{#if wrongPass}} Wrong password {{/if}} </label>
+            <input id="submit" type="submit" value="LOG IN" disabled>
+        </form>
+        <p>New to One Salty Tuna? <a href="/auth/signup">Sign up</a></p>
+    </div>
+</div>
+
+<script src="/javascript/login.js"></script>

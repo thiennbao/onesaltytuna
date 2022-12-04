@@ -1,38 +1,47 @@
+const jwt = require('jsonwebtoken')
+const cookie = require('cookie')
+
 const User = require('../models/User')
 
 class authMiddleware {
 
-    // Sign up check available
-    checkAvailable(req, res, next) {
-        User.findOne({
-            username: req.body.username
-        })
-        .then(data => {
+    // Check is logged in
+    checkLoggedin(req, res, next) {
+        try {
+            var cookies = cookie.parse(req.headers.cookie || '')
+            var token = cookies.token
+            var data = jwt.verify(token, 'お前はもう死んでいる')
             if (data) {
-                res.render('signup', {
-                    signup: true,
-                    notAvailable: true,
-                    user: {
-                        username: req.body.username,
-                        phone: req.body.phone,
-                        email: req.body.email
+                res.redirect('/')
+            }
+        } catch (err) {
+            next()
+        }
+    }
+
+    // Check user
+    checkUser(req, res, next) {
+        try {
+            var cookies = cookie.parse(req.headers.cookie || '')
+            var token = cookies.token
+            var data = jwt.verify(token, 'お前はもう死んでいる')
+            var username = req.params.user
+            if (data) {
+                User.findById(data._id)
+                .then(user => {
+                    if(username == user.username) {
+                        next()
+                    } else {
+                        res.json('403')
                     }
                 })
-            } else {
-                User.create({
-                    username: req.body.username,
-                    password: req.body.password,
-                    phone: req.body.phone,
-                    email: req.body.email
-                })
-                .then(data => {
-                    next()
+                .catch(err => {
+                    res.redirect('/auth/login')
                 })
             }
-        })
-        .catch(err => {
-            res.send('ERROR')
-        })
+        } catch (err) {
+            res.redirect('/auth/login')
+        }
     }
 }
 

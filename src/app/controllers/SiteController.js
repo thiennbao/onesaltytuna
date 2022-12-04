@@ -1,4 +1,6 @@
 const mongooseUtil = require('../../util/mongoose')
+const handlerbarsUtil = require('../../util/handlerbars')
+
 const Sushi = require('../models/Sushi')
 const News = require('../models/News')
 
@@ -15,6 +17,8 @@ class siteController {
                 news = mongooseUtil.getNewestNews(news, 3)
                 res.render('home', {
                     home: true,
+                    isLoggedin: handlerbarsUtil.isLoggedin(req),
+                    username: handlerbarsUtil.getUsername(req),
                     sushi: sushi,
                     news: news
                 })
