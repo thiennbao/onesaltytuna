@@ -4,7 +4,6 @@ const exphbs = require('express-handlebars')
 const db = require('./config/db/connection')
 
 const app = express()
-const port = 3000
 
 
 // Connect to DB
@@ -27,6 +26,6 @@ const route = require('./routes/route')
 route(app)
 
 // Sever
-app.listen(port, function() {
+app.listen(process.env.PORT, function() {
     console.log('Connect to sever successfully')
 })
