@@ -28,5 +28,5 @@ route(app)
 
 // Sever
 app.listen(port, function() {
-    console.log('Connect successfully, some bullshit happens at http://localhost:3000')
+    console.log('Connect to sever successfully')
 })

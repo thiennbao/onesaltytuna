@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 
-async function connect() {
-    try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/onesaltytuna');
+
+function connect(){
+    mongoose.connect('mongodb+srv://thiennbao:thiennbao@onesaltytuna.n7fvaxk.mongodb.net/onesaltytuna?retryWrites=true&w=majority', () => {
         console.log('Connect to database successfully')
-    } catch (error) {
-        console.log('Connect fail')
-    }
+    })
 }
+
 
 module.exports = { connect }

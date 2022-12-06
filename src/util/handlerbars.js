@@ -9,6 +9,12 @@ var handlerbarsUtil = {
         return cookies.user
     },
 
+    // Get cart
+    getCart(req) {
+        var cookies = cookie.parse(req.headers.cookie || '')
+        return cookies.cart
+    },
+
     // Check is logged in
     isLoggedin(req) {
         try {

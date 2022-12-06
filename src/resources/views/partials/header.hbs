@@ -8,7 +8,7 @@
     <div id="nav">
         <a href="/ " class="{{#if home}}active{{/if}}">HOME</a>
         <a href="/about" class="{{#if about}}active{{/if}}">ABOUT</a>
-        <a href="/menu" class="{{#if order}}active{{/if}}">MENU</a>
+        <a href="/menu" class="{{#if menu}}active{{/if}}">MENU</a>
         <a href="/contact" class="{{#if contact}}active{{/if}}">CONTACT</a>
     </div>
 
@@ -19,7 +19,7 @@
             <a id="loginNav" href="/auth/login" class="{{#if login}}active{{/if}}">LOG IN</a>
         {{/unless}}
         {{#if isLoggedin}}
-            <a id="userNav" href="/user/{{username}}" class="{{#if user}}active{{/if}}">HI, {{username}}</a>
+            <a id="userNav" href="/user/{{username}}" class="{{#if userInfo}}active{{/if}}">HI, {{username}}</a>
         {{/if}}
     </div>
 

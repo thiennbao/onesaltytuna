@@ -1,7 +1,12 @@
 var mongooseUtil = {
 
+    // Get data
+    getData(data) {
+        return data.map(data => data.toObject())
+    },
+
     // Get random sushi
-    getRandomSushi : function(sushi, amount) {
+    getRandomSushi(sushi, amount) {
         sushi = sushi.map(sushi => sushi.toObject())
         var randomNum, randomSushiID = [], randomSushi = [], loop
         for (var i=0; i<amount; i++) {
@@ -23,7 +28,7 @@ var mongooseUtil = {
     },
 
     // Get newest news
-    getNewestNews: function(news, amount) {
+    getNewestNews(news, amount) {
         news = news.map(news => news.toObject())
         var newest = []
         for (var i=0; i<amount; i++) {

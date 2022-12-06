@@ -1,0 +1,87 @@
+<!-- Wall -->
+<section id="menu-wallpaper">
+    <div>
+        <img src="img/general/wallpaper-2.jpg" alt="">
+    </div>
+    <h1>MENU</h1>
+</section>
+<!-- Menu -->
+<section id="menu-menu">
+    <h2 class="heading">MENU</h2>
+    <div id="dish-type">
+        <div id="type-nigirizushi" class="menu-current">Nigiri</div>
+        <div id="type-makimono">Makimono</div>
+        <div id="type-gunkan">Gunkan</div>
+        <div id="type-sashimi">Sashimi</div>
+        <div id="type-tempura">Tempura</div>
+        <div id="type-more">More</div>
+    </div>
+    <div id="dishes">
+        {{#each sushi}}
+            <div class="{{this.type}}">
+                <img src="{{this.img}}" alt="">
+                <p class="dish-name">{{this.name}}</p>
+                <p class="describe">{{this.description}}</p>
+                <p class="price">{{this.cost}}$</p>
+            </div>
+        {{/each}}
+    </div>
+</section>
+
+<!-- Order -->
+<section id="cart">
+    <div>
+        <div id="cart-form">
+            <h3>
+                <span>CART</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                </svg>
+            </h3>
+            <form method="POST" action="/cart" id="order-form" onchange="form()">
+                <input name="order" value="" style="display: none;"></input>
+                <input type="submit" disabled id="submit" value="GO TO ORDER">
+            </form>
+        </div>
+        <table id="cart-table">
+            <thead>
+                <td>No</td>
+                <td>Dish</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <td colspan="5"><p>Grand Total <span></span></p></td>
+            </tfoot>
+        </table>  
+    </div>
+</section>
+
+<!-- Illustrative Images -->
+<section id="illustrative-image-more">
+    <div style="background-image: url(img/menu/menu_gunkan-kani.jpg);"></div>
+    <div style="background-image: url(img/menu/menu_sashimi-amaebi.jpg);"></div>
+    <div style="background-image: url(img/menu/menu_makimono-karaisake.jpg);"></div>
+    <div style="background-image: url(img/menu/menu_gunkan-tobikowasabi.jpg);"></div>
+    <div style="background-image: url(img/menu/menu_nigiri-unagi.jpg);"></div>
+    <div style="background-image: url(img/menu/menu_nigiri-amaebi.jpg);"></div>
+</section>
+
+<script src="/javascript/menu.js"></script>
+<script>
+    const dish_type = $('#menu-menu #dish-type div')
+    $('#dishes div').hide()
+    $(`.${document.querySelector('.menu-current').innerText}`).show()
+    for (let i = 0; i < dish_type.length; i++) {
+        dish_type[i].onclick = function() {
+            $(`.${document.querySelector('.menu-current').innerText}`).hide()
+            $('.menu-current').css({"background-color":"white","color":"black"})
+            $('.menu-current').removeClass('menu-current')
+            $(`.${dish_type[i].innerText}`).show()
+            this.style = "background-color:$main-color; color:white"
+            this.classList.add('menu-current')
+        }
+    }
+</script>

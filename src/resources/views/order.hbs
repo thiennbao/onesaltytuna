@@ -1,0 +1,55 @@
+<section id="menu-wallpaper">
+    <div>
+        <img src="img/general/wallpaper-2.jpg" alt="">
+    </div>
+    <h1>ORDER</h1>
+</section>
+
+<section id="order">
+    <h2 class="heading">ORDER</h2>
+    <div>
+        <h3>USER INFOMATION</h3>
+        <div id="order-form">
+            <form method="POST" action="/submitOrder" onchange="form()">
+                <input type="text" name="userid" value="{{user._id}}" style="display: none;"></input>
+                <input type="text" name="name" placeholder="Name" value="{{user.username}}"></input>
+                <input type="text" name="address" placeholder="Address" value="{{user.address}}"></input>
+                <input type="tel" name="phone" placeholder="Phone" value="{{user.phone}}"></input>
+                <input type="email" name="email" placeholder="Email" value="{{user.email}}"></input>
+                <input type="text" name="messege" placeholder="Messege"></input>
+                <input type="text" id="cartItem" name="content" value="{{cart}}" style="display: none;"></input>
+                <input type="submit" id="submit" value="ORDER">
+            </form>
+        </div>
+        <table id="cart-table">
+            <h3>CART CONTENT</h3>
+            <thead>
+                <td>No</td>
+                <td>Dish</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <td id="grandtotal" colspan="5"><p><span></span></p></td>
+            </tfoot>
+        </table>  
+    </div>
+</section>
+
+<script>
+    var cartCookie = $('#cartItem').val()
+    var cart = cartCookie.split(';')
+    var grandTotal = 0
+    var cartItem = []
+    for (var i=0; i<cart.length-1; i++) {
+        cartItem[i] = cart[i].split(',')
+    }
+    cartItem.forEach(function (item, index) {
+        document.querySelector('#cart-table tbody').innerHTML += `<tr><td>${index+1}</td><td>${item[0]}</td><td>${item[1]}$</td><td>${item[2]}</td><td>${item[3]}$</td></tr>`
+        grandTotal += Number(item[3])
+    })
+    $('#grandtotal').text(`Grand Total: ${grandTotal}$`)
+
+</script>
