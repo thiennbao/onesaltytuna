@@ -1,0 +1,118 @@
+#about-wall {
+  overflow: visible; }
+
+#about-intro {
+  position: relative;
+  overflow: hidden;
+  height: 325px;
+  color: white; }
+
+#about-intro img {
+  filter: brightness(0.5) contrast(1.1); }
+
+#about-intro > div {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  margin: auto; }
+
+#about-intro div div {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform: rotate(45deg);
+  border: white solid 2px; }
+
+#about-intro p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  text-align: center;
+  font-size: 14px; }
+
+#about-intro p span {
+  font-size: 20px; }
+
+#about-special div {
+  margin: 15px 0; }
+
+#about-special p {
+  overflow: hidden;
+  color: gray; }
+
+#about-special svg {
+  color: #D3232D;
+  transform: scale(2);
+  margin-right: 10px;
+  filter: contrast(1.2); }
+
+#about-special img {
+  margin: 0.1%;
+  width: 49%;
+  filter: brightness(0.5);
+  background-size: 100%;
+  background-position: center; }
+
+@media screen and (min-width: 600px) {
+  #about-intro {
+    height: 400px; }
+  #about-intro > div {
+    width: auto;
+    flex-wrap: nowrap; }
+  #about-intro div div {
+    margin: 45px;
+    width: 120px;
+    height: 120px; }
+  #about-special div {
+    margin: 15px 0; }
+  #about-special p {
+    overflow: hidden;
+    color: gray; }
+  #about-special svg {
+    transform: scale(2);
+    margin-right: 10px; }
+  #about-special img {
+    margin: 0.1%;
+    width: 49%;
+    filter: brightness(0.5);
+    background-size: 100%;
+    background-position: center; }
+  #about-intro p {
+    font-size: 16px; }
+  #about-intro p span {
+    font-size: 30px; }
+  #about-special div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  #about-special p {
+    width: 33%;
+    font-size: 15px; }
+  #about-special img {
+    width: 33%; }
+  #about-special img:last-child {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  #about-intro {
+    height: 500px; }
+  #about-intro div div {
+    margin: 0 50px;
+    width: 160px;
+    height: 160px; }
+  #about-intro p {
+    font-size: 20px; }
+  #about-intro p span {
+    font-size: 40px; }
+  #about-special div {
+    margin: 0 0 50px; }
+  #about-special p {
+    font-size: 19px; } }

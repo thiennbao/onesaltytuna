@@ -1,0 +1,496 @@
+#wall {
+  height: 500px;
+  position: relative;
+  top: 60px;
+  color: white;
+  overflow: visible; }
+
+#wall #wall-content {
+  overflow: visible;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  text-align: center;
+  z-index: 1; }
+
+#wall h1 {
+  overflow: visible;
+  font-size: 50px;
+  font-weight: bold;
+  width: 100%; }
+
+#wall h1::before {
+  content: 'Sushi restaurant';
+  position: absolute;
+  bottom: 100%;
+  font-size: 15px;
+  left: 50%;
+  transform: translateX(-50%); }
+
+#slide {
+  height: 100%;
+  position: relative; }
+
+#slide div {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute; }
+
+#slide-0 {
+  background-image: url(/img/general/wallpaper-0.jpg);
+  filter: brightness(0.25); }
+
+#slide-1 {
+  left: 100%;
+  background-image: url(/img/general/wallpaper-1.jpg);
+  filter: brightness(0.3);
+  background-position: right; }
+
+#slide-2 {
+  left: 100%;
+  background-image: url(/img/general/wallpaper-2.jpg);
+  filter: brightness(0.5); }
+
+#wall #prev-next span {
+  position: absolute;
+  top: 50%;
+  margin: 0 20px; }
+
+#wall #prev-next span:last-child {
+  right: 0; }
+
+#rings {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  user-select: none !important; }
+
+#rings span {
+  margin: 4px;
+  position: relative; }
+
+#rings span::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px; }
+
+@keyframes prev-in {
+  from {
+    left: -100%; }
+  to {
+    left: 0; } }
+
+@keyframes prev-out {
+  from {
+    left: 0; }
+  to {
+    left: 100%; } }
+
+@keyframes next-in {
+  from {
+    left: 100%; }
+  to {
+    left: 0; } }
+
+@keyframes next-out {
+  from {
+    left: 0; }
+  to {
+    left: -100%; } }
+
+#about {
+  margin-top: 100px;
+  font-size: 14px; }
+
+#illustrative-image > div {
+  height: 30vw;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  filter: brightness(1); }
+
+#illustrative-image > div div {
+  background-size: 100%;
+  background-position: center;
+  filter: brightness(0.3);
+  height: 100%; }
+
+#illustrative-image > div span {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+#illustrative-image_nigirizushi {
+  background-image: url(/img/general/illu_nigirizushi.jpg); }
+
+#illustrative-image_makimono {
+  background-image: url(/img/general/illu_makimono.jpg); }
+
+#illustrative-image_tempura {
+  background-image: url(/img/general/illu_tempura.jpg); }
+
+#illustrative-image_sashimi {
+  background-image: url(/img/general/illu_sashimi.jpg); }
+
+#dishes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#dishes > div {
+  max-width: 200px;
+  width: 48%;
+  height: 300px;
+  border: lightgray solid 1px;
+  margin: 15px 1% 0;
+  position: relative; }
+
+#dishes img {
+  width: 100%;
+  height: 100px; }
+
+#dishes p {
+  margin: 10%; }
+
+#dishes .dish-name {
+  font-size: 18px; }
+
+#dishes .describe {
+  font-size: 12px; }
+
+#dishes .price {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  padding: 4% 10%;
+  border-radius: 10%;
+  color: white;
+  background-color: #D3232D; }
+
+#quality-commit {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  filter: brightness(0.75); }
+
+#quality-commit img {
+  width: 150%;
+  height: 100%; }
+
+#quality-commit div {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translateY(-50%);
+  width: 60%; }
+
+#quality-commit h3 {
+  font-size: 15px; }
+
+#quality-commit p {
+  font-size: 12px; }
+
+#news {
+  position: relative; }
+
+#news-item div {
+  width: 100%;
+  height: 120px;
+  margin: 15px 0;
+  overflow: hidden; }
+
+#news img {
+  float: left;
+  width: 45%;
+  height: 100%;
+  margin-right: 5%;
+  filter: brightness(0.8); }
+
+#news h3 {
+  margin: 5px 0;
+  float: left;
+  width: 50%;
+  color: var(--heading);
+  font-weight: bold;
+  font-size: 14px; }
+
+#news p {
+  float: left;
+  width: 50%;
+  margin: 10px 0;
+  font-size: 12px;
+  color: gray; }
+
+#news button {
+  float: left;
+  width: 60px;
+  height: 30px;
+  margin-top: 15px;
+  border: #D3232D solid 2px;
+  color: #D3232D;
+  background-color: white; }
+
+.news-close {
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+  width: 25px !important;
+  height: 25px !important;
+  z-index: 2; }
+
+.news-detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 90vw;
+  height: 70vh;
+  box-shadow: 0px 0px 10px darkgray;
+  background-color: white;
+  filter: blur(0px); }
+
+#news .news-detail img {
+  padding: 1.2%;
+  width: 50%;
+  height: 100%; }
+
+#news .news-detail div {
+  width: 50%;
+  position: absolute;
+  right: 0; }
+
+#news .news-detail div h3 {
+  text-align: center;
+  color: #D3232D;
+  font-size: 30px;
+  padding: 20px; }
+
+#news .news-detail div .news-date {
+  text-align: right;
+  padding: 2% 8%; }
+
+#news .news-detail div .news-content {
+  color: black;
+  padding-right: 8%; }
+
+#illustrative-image-more {
+  padding: 0 1%; }
+
+#illustrative-image-more div {
+  float: left;
+  margin: 1%;
+  width: 48%;
+  height: 20vw;
+  filter: brightness(0.5) !important;
+  background-size: 100%;
+  background-position: center; }
+
+@media screen and (min-width: 600px) {
+  #about {
+    margin-top: 140px;
+    font-size: 14px; }
+  #illustrative-image {
+    display: flex; }
+  #illustrative-image > div {
+    width: 25%;
+    height: 40vw; }
+  #illustrative-image > div div {
+    background-size: 160%; }
+  #dishes {
+    justify-content: space-between; }
+  #dishes > div {
+    max-width: unset;
+    margin: 8px 0 0;
+    width: 24%;
+    height: 300px; }
+  #dishes > div img {
+    height: 110px; }
+  #quality-commit img {
+    width: 100%; }
+  #quality-commit div {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; }
+  #quality-commit h3 {
+    font-size: 30px; }
+  #quality-commit p {
+    font-size: 14px; }
+  #news-item div {
+    height: 150px; }
+  #news h3 {
+    font-size: 18px; }
+  #news p {
+    margin: 20px 0;
+    font-size: 14px; }
+  #news button {
+    width: 80px; }
+  #illustrative-image-more {
+    padding: 0;
+    height: 20vw;
+    display: flex; }
+  #illustrative-image-more div {
+    width: 20vw;
+    margin: 0;
+    background-size: 160%; }
+  #illustrative-image-more div:last-child {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  #wall {
+    max-height: 600px;
+    height: 40vw;
+    top: 80px; }
+  #wall #wall-content {
+    transform: translate(-50%, -50%) scale(150%);
+    opacity: 0; }
+  #wall h1 {
+    font-size: 65px; }
+  #wall h1::before {
+    font-size: 20px; }
+  #slide-0 {
+    filter: brightness(0.5); }
+  #slide-1 {
+    filter: brightness(0.75); }
+  #slide-2 {
+    filter: brightness(0.75); }
+  #wall #prev-next span {
+    cursor: pointer;
+    opacity: 0; }
+  #rings {
+    cursor: pointer; }
+  #rings span::after {
+    transform: translate(-50%); }
+  @keyframes prevBtn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%); }
+    to {
+      opacity: 1;
+      transform: translateX(0); } }
+  @keyframes nextBtn {
+    from {
+      opacity: 0;
+      transform: translateX(50%); }
+    to {
+      opacity: 1;
+      transform: translateX(0); } }
+  #wall:hover #wall-prev {
+    animation: prevBtn 1s forwards; }
+  #wall:hover #wall-next {
+    animation: nextBtn 1s forwards; }
+  @keyframes wall-load {
+    to {
+      transform: scale(100%) translate(-50%, -50%);
+      opacity: 1; } }
+  #wall-content {
+    animation: wall-load 1.5s ease forwards; }
+  #about {
+    margin-top: 160px;
+    font-size: 16px; }
+  #about p {
+    font-weight: 500; }
+  #illustrative-image > div {
+    max-height: 450px;
+    height: 30vw;
+    font-size: 30px; }
+  #illustrative-image div div {
+    background-size: 120%; }
+  @keyframes zoom-in {
+    from {
+      background-size: 120%; }
+    to {
+      background-size: 135%; } }
+  @keyframes zoom-out {
+    from {
+      background-size: 135%; }
+    to {
+      background-size: 120%; } }
+  #dishes > div {
+    height: 400px;
+    margin-top: 16px; }
+  #dishes > div img {
+    height: 180px; }
+  #dishes .dish-name {
+    font-size: 20px; }
+  #dishes .describe {
+    font-size: 14px; }
+  #dishes .price {
+    padding: 5px 14px; }
+  #dishes > div:hover img {
+    animation: dishes-hover 0.5s forwards; }
+  @keyframes dishes-hover {
+    to {
+      filter: brightness(0.6); } }
+  #quality-commit div {
+    width: 40%; }
+  #quality-commit h3 {
+    font-size: 25px; }
+  #quality-commit p {
+    font-size: 15px; }
+  #news-item {
+    display: flex; }
+  #news-item div {
+    width: 300px;
+    height: 360px;
+    margin: 10px;
+    position: relative; }
+  #news img {
+    width: 100%;
+    height: 200px; }
+  #news h3 {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 15px;
+    width: 90%; }
+  #news p {
+    width: 100%;
+    margin: 0 20px; }
+  #news button {
+    margin: 25px 20px 0;
+    cursor: pointer; }
+  @keyframes shadow {
+    to {
+      box-shadow: 0 2px 10px gray; } }
+  #news-item div:hover {
+    animation: shadow 0.5s forwards; }
+  #news-item div:hover img {
+    animation: dishes-hover 0.5s forwards; }
+  @keyframes button-bgcolor {
+    to {
+      background-color: #D3232D;
+      color: white; } }
+  #news button:hover {
+    animation: button-bgcolor 0.25s forwards; }
+  #illustrative-image-more div {
+    overflow: none;
+    max-height: 300px; }
+  @keyframes img-in {
+    from {
+      background-size: 160%; }
+    to {
+      background-size: 180%; } }
+  @keyframes img-out {
+    from {
+      background-size: 180%; }
+    to {
+      background-size: 160%; } } }
+
+@media screen and (min-width: 992px) {
+  #about p {
+    width: 45vw; }
+  #dishes .price {
+    padding: 8px 20px; } }

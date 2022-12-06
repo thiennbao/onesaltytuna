@@ -1,0 +1,65 @@
+#login {
+  position: relative;
+  top: 80px;
+  height: 85vh;
+  margin-bottom: 150px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/general/wallpaper-2.jpg"); }
+
+#login-form {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 70%;
+  padding: 2%;
+  background-color: white; }
+
+#login-form h3 {
+  text-align: center;
+  color: #D3232D;
+  font-size: 30px;
+  margin: 15px; }
+
+#login-form p {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 15px; }
+
+#login-form p a {
+  color: #D3232D;
+  text-decoration: underline; }
+
+#login-form form > input {
+  overflow: hidden;
+  width: 100%;
+  border: none;
+  border-bottom: gray solid 1px;
+  outline: none;
+  height: 40px;
+  margin-top: 4%;
+  padding: 10px; }
+
+#login-form #submit {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  border: none;
+  background-color: #D3232D;
+  color: white;
+  font-weight: bold; }
+
+#login-form label {
+  font-size: 12px;
+  color: #D3232D; }
+
+#login-form form > input.bad {
+  border: #D3232D solid 2px; }
+
+#login-form form > input.good {
+  border: darkgreen solid 2px; }
