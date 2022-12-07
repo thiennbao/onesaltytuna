@@ -9,7 +9,7 @@
 .active {
     color: $main-color !important;
 }
-input#submit:disabled {
+input[type="submit"]:disabled {
     background-color: gray !important;
 }
 body {
@@ -20,7 +20,7 @@ body {
 a {
     text-decoration: none;
 }
-#about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order {
+#about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
     margin: 5%;
 }
 
@@ -185,7 +185,7 @@ footer h3 {
     .heading {
         font-size: 30px;
     }
-    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order {
+    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
         margin: 10%;
     }
     // Site's Wallpaper
@@ -256,7 +256,7 @@ footer h3 {
         position: relative;
         font-size: 35px;
     }
-    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order {
+    #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
         margin: 5% 10%;
     }
     // Site's Wallpaper

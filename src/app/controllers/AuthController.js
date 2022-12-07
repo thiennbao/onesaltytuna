@@ -79,7 +79,11 @@ class authController {
                     user: {
                         username: req.body.username,
                         phone: req.body.phone,
-                        address: req.body.address
+                        address: {
+                            city: req.body.city,
+                            dist: req.body.dist,
+                            detail: req.body.detail
+                        }
                     }
                 })
             } else {
@@ -90,7 +94,11 @@ class authController {
                             username: req.body.username,
                             password: hash,
                             phone: req.body.phone,
-                            address: req.body.address
+                            address: {
+                                city: req.body.city,
+                                dist: req.body.dist,
+                                detail: req.body.detail
+                            }
                         })
                         .then(data => {
                             res.render('signup', {

@@ -11,9 +11,9 @@
 #signup-form {
     position: absolute;
     left: 75%;
-    top:50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 35%;
     height: 90%;
     padding: 2%;
     background-color: white;
@@ -36,17 +36,33 @@
     color: $main-color;
     text-decoration: underline;
 }
-#signup-form form > input {
+#signup-form form input {
     overflow: hidden;
     width: 100%;
+    outline: none;
     border: none;
     border-bottom: gray solid 1px;
     height: 40px;
     margin-top: 4%;
     padding: 10px;
+    font-size: 15px;
 }
-#signup-form form > input:focus {
+#signup-form #address-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#signup-form #address-input input {
+    width: 37%;
+}
+#signup-form #address-input select {
+    width: 30%;
+    height: 40px;
     outline: none;
+    border: none;
+    border-bottom: lightgreen solid 2px;
+    font-size: 15px;
+    padding-bottom: 1px;
+    margin-top: 4%;
 }
 #signup-form #submit {
     position: absolute;
@@ -63,10 +79,10 @@
     font-size: 12px;
     color: $main-color;
 }
-#signup-form form > input.bad {
+#signup-form form input.bad {
     border-bottom: $main-color solid 2px;
 }
-#signup-form form > input.good {
+#signup-form form input.good {
     border-bottom: lightgreen solid 2px;
 }
 

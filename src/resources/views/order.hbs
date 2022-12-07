@@ -14,36 +14,37 @@
                 <input id="username" type="hidden" name="username" value="{{user.username}}" required></input>
                 <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" onblur="nameValidate()" class="{{#if user.name}}good{{/if}}"></input>
                 <label for="name"></label>
-                <input id="phone" type="tel" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
+                <input id="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
                 <label for="phone"></label>
                 <div id="address-input">
                     <input id="detail" type="text" name="detail" placeholder="Address detail" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address}}good{{/if}}"></input>
-                    <select name="district" id="district">
-                        <option id="userDistrict" value="{{user.address.district}}">{{user.address.district}}</option>
-                        <option value="1st District">1st District</option>
-                        <option value="2nd District">2nd District</option>
-                        <option value="3rd District">3rd District</option>
-                        <option value="4th District">4th District</option>
-                        <option value="5th District">5th District</option>
-                        <option value="6th District">6th District</option>
-                        <option value="7th District">7th District</option>
-                        <option value="8th District">8th District</option>
-                        <option value="9th District">9th District</option>
-                        <option value="10th District">10th District</option>
-                        <option value="11th District">11th District</option>
-                        <option value="12th District">12th District</option>
-                        <option value="Binh Thanh District">Binh Thanh District</option>
-                        <option value="Thu Duc District">Thu Duc District</option>
-                        <option value="Go Vap District">Go Vap District</option>
-                        <option value="Phu Nhuan">Phu Nhuan District</option>
-                        <option value="Tuan Binh District">Tan Binh District</option>
-                        <option value="Tan Phu District">Tan Phu District</option>
-                        <option value="Binh Tan District">Binh Tan District</option>
-                        <option value="Nha Be District">Nha Be District</option>
-                        <option value="Hoc Mon District">Hoc Mon District</option>
-                        <option value="Binh Chanh District">Binh Chanh District</option>
-                        <option value="Cu Chi District">Cu Chi District</option>
-                        <option value="Can Gio District">Can Gio District</option>
+                    <select name="district" id="district" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
+                        <option id="userDist" value="{{user.address.dist}}">{{user.address.dist}}</option>
+                        {{#if user.address.city}}{{#unless user.address.dist}}<option id="userDist" value=""></option>{{/unless}}{{/if}}
+                        <option value="1st Dist">1st Dist</option>
+                        <option value="2nd Dist">2nd Dist</option>
+                        <option value="3rd Dist">3rd Dist</option>
+                        <option value="4th Dist">4th Dist</option>
+                        <option value="5th Dist">5th Dist</option>
+                        <option value="6th Dist">6th Dist</option>
+                        <option value="7th Dist">7th Dist</option>
+                        <option value="8th Dist">8th Dist</option>
+                        <option value="9th Dist">9th Dist</option>
+                        <option value="10th Dist">10th Dist</option>
+                        <option value="11th Dist">11th Dist</option>
+                        <option value="12th Dist">12th Dist</option>
+                        <option value="Binh Thanh Dist">Binh Thanh Dist</option>
+                        <option value="Thu Duc Dist">Thu Duc Dist</option>
+                        <option value="Go Vap Dist">Go Vap Dist</option>
+                        <option value="Phu Nhuan Dist">Phu Nhuan Dist</option>
+                        <option value="Tuan Binh Dist">Tan Binh Dist</option>
+                        <option value="Tan Phu Dist">Tan Phu Dist</option>
+                        <option value="Binh Tan Dist">Binh Tan Dist</option>
+                        <option value="Nha Be Dist">Nha Be Dist</option>
+                        <option value="Hoc Mon Dist">Hoc Mon Dist</option>
+                        <option value="Binh Chanh Dist">Binh Chanh Dist</option>
+                        <option value="Cu Chi Dist">Cu Chi Dist</option>
+                        <option value="Can Gio Dist">Can Gio Dist</option>
                     </select>
                     <select name="city" id="city" value="{{user.address.city}}" onchange="citySelect()">
                         <option id="userCity" value="{{user.address.city}}">{{user.address.city}}</option>

@@ -9,5 +9,9 @@ const authMiddleware = require('../../app/middleware/AuthMiddleware')
 // Site
 router.get('/:user', authMiddleware.checkUser, userController.user)
 
+// Update
+router.post('/changeUserInfo', userController.changeUserInfo)
+router.post('/changePassword', userController.changePassword)
+
 
 module.exports = router

@@ -2,7 +2,6 @@ var mongooseUtil = {
 
     // Get data
     getData(data) {
-        console.log(data)
         return data.map(data => data.toObject())
     },
 

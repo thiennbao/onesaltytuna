@@ -7,7 +7,7 @@ const User = Schema({
     password: {type: String},
     name: {type: String},
     address: {type: Object},
-    phone: {type: Number},
+    phone: {type: String},
     email: {type: String},
     role: {type: Number, default: 0}
 })
