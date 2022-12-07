@@ -8,8 +8,8 @@
             <label for="password"></label>
             <input id="phone" type="tel" name="phone" placeholder="Phone" onblur="phoneValidate()" value="{{user.phone}}" class="{{#if notAvailable}}good{{/if}}">
             <label for="phone"></label>
-            <input id="email" type="email" name="email" placeholder="Email" onblur="emailValidate()" value="{{user.email}}" class="{{#if notAvailable}}good{{/if}}">
-            <label for="email"></label>
+            <input id="address" type="text" name="address" placeholder="Address" onblur="addressValidate()" value="{{user.address}}" class="{{#if notAvailable}}good{{/if}}">
+            <label for="address"></label>
             <input id="submit" type="submit" value="SIGN UP" disabled>
         </form>
         <p>Already have an account? <a href="/auth/login">Log in</a></p>

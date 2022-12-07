@@ -10,15 +10,51 @@
     <div>
         <h3>USER INFOMATION</h3>
         <div id="order-form">
-            <form method="POST" action="/submitOrder" onchange="form()">
-                <input type="text" name="userid" value="{{user._id}}" style="display: none;"></input>
-                <input type="text" name="name" placeholder="Name" value="{{user.username}}"></input>
-                <input type="text" name="address" placeholder="Address" value="{{user.address}}"></input>
-                <input type="tel" name="phone" placeholder="Phone" value="{{user.phone}}"></input>
-                <input type="email" name="email" placeholder="Email" value="{{user.email}}"></input>
-                <input type="text" name="messege" placeholder="Messege"></input>
-                <input type="text" id="cartItem" name="content" value="{{cart}}" style="display: none;"></input>
-                <input type="submit" id="submit" value="ORDER">
+            <form method="POST" action="/submitOrder">
+                <input id="username" type="hidden" name="username" value="{{user.username}}" required></input>
+                <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" onblur="nameValidate()" class="{{#if user.name}}good{{/if}}"></input>
+                <label for="name"></label>
+                <input id="phone" type="tel" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
+                <label for="phone"></label>
+                <div id="address-input">
+                    <input id="detail" type="text" name="detail" placeholder="Address detail" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address}}good{{/if}}"></input>
+                    <select name="district" id="district">
+                        <option id="userDistrict" value="{{user.address.district}}">{{user.address.district}}</option>
+                        <option value="1st District">1st District</option>
+                        <option value="2nd District">2nd District</option>
+                        <option value="3rd District">3rd District</option>
+                        <option value="4th District">4th District</option>
+                        <option value="5th District">5th District</option>
+                        <option value="6th District">6th District</option>
+                        <option value="7th District">7th District</option>
+                        <option value="8th District">8th District</option>
+                        <option value="9th District">9th District</option>
+                        <option value="10th District">10th District</option>
+                        <option value="11th District">11th District</option>
+                        <option value="12th District">12th District</option>
+                        <option value="Binh Thanh District">Binh Thanh District</option>
+                        <option value="Thu Duc District">Thu Duc District</option>
+                        <option value="Go Vap District">Go Vap District</option>
+                        <option value="Phu Nhuan">Phu Nhuan District</option>
+                        <option value="Tuan Binh District">Tan Binh District</option>
+                        <option value="Tan Phu District">Tan Phu District</option>
+                        <option value="Binh Tan District">Binh Tan District</option>
+                        <option value="Nha Be District">Nha Be District</option>
+                        <option value="Hoc Mon District">Hoc Mon District</option>
+                        <option value="Binh Chanh District">Binh Chanh District</option>
+                        <option value="Cu Chi District">Cu Chi District</option>
+                        <option value="Can Gio District">Can Gio District</option>
+                    </select>
+                    <select name="city" id="city" value="{{user.address.city}}" onchange="citySelect()">
+                        <option id="userCity" value="{{user.address.city}}">{{user.address.city}}</option>
+                        <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label for="address"></label>
+                </div>
+                <input id="message" type="text" name="message" placeholder="Message"></input>
+                <input id="cartItem" type="hidden" name="content" value="{{cart}}"></input>
+                <input type="submit" id="submit" value="ORDER" disabled>
             </form>
         </div>
         <table id="cart-table">
@@ -38,6 +74,7 @@
     </div>
 </section>
 
+<script src="/javascript/order.js"></script>
 <script>
     var cartCookie = $('#cartItem').val()
     var cart = cartCookie.split(';')
@@ -51,5 +88,4 @@
         grandTotal += Number(item[3])
     })
     $('#grandtotal').text(`Grand Total: ${grandTotal}$`)
-
 </script>

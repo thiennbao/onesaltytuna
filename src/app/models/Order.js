@@ -3,11 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const Order = Schema({
-    userid: {type: String},
+    username: {type: String},
     name: {type: String},
-    address: {type: String},
     phone: {type: Number},
-    email: {type: String},
+    address: {type: String},
     message: {type: String},
     content: {type: String}
 })

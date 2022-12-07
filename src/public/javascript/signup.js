@@ -39,7 +39,7 @@ function phoneValidate() {
     $('#phone').attr('class', 'good')
     var phone = $('#phone')[0].value
     if (phone.length != 10) {
-        $('label[for="phone"]')[0].innerText = 'Tel must be 10 numbers'
+        $('label[for="phone"]')[0].innerText = 'Phone must be 10 numbers'
         $('#phone').attr('class', 'bad')
     }
     for (var i=0; i<phone.length; i++) {
@@ -55,69 +55,82 @@ function phoneValidate() {
     submitDisplay()
 }
 
-function emailValidate() {
-    $('#email').attr('class', 'good')
-    var email = $('#email')[0].value
-    var at = 0, dot = 0
-    var isAt = false, isDot = false
-    for (var i=0; i<email.length; i++) {
-        if ( ('a'>email[i] || email[i]>'z') && ('A'>email[i] || email[i]>'Z') && ('0'>email[i] || email[i]>'9') && email[i]!='@' && email[i]!='.') {
-            $('label[for="email"]')[0].innerText = 'Only characters a-z, A-Z, 0-9, (@), (.) are allowed'
-            $('#email').attr('class', 'bad')
-        } else {
-            if (email[i]=='@') {
-                at++
-                isAt = true
-            }
-            if (email[i]=='.') {
-                // Dot must not after Dot
-                if (isDot) {
-                    $('label[for="email"]')[0].innerText = 'Email can not cotain consecutive dot (.)'
-                    $('#email').attr('class', 'bad')
-                }
-                isDot = true
-
-                // Dot after At must = 1
-                if (isAt) {
-                    dot++
-                }
-            } else {
-                isDot = false
-            }
-
-        }
+function addressValidate() {
+    $('#address').attr('class', 'good')
+    var address = $('#address')[0].value
+    if (address.length <= 0) {
+        $('label[for="address"]')[0].innerText = 'Address must be filled'
+        $('#address').attr('class', 'bad')
     }
-    if (email[0]=='@' || email[0]=='.' || email[email.length-1]=='@' || email[email.length-1]=='.') {
-        $('label[for="email"]')[0].innerText = 'The fist and the last characters can be (@) or (.)'
-        $('#email').attr('class', 'bad')
-    }
-    if (at!=1 || dot!=1) {
-        if (dot != 1) {
-            $('label[for="email"]')[0].innerText = 'Email must have one and only one (.) character after (@) character'
-        }
-        if (at != 1) {
-            $('label[for="email"]')[0].innerText = 'Email must have one and only one (@) character'
-        }
-        $('#email').attr('class', 'bad')
-    }
-
-    if (email.length == 0) {
-        $('label[for="email"]')[0].innerText = 'Email must be filled'
-        $('#email').attr('class', 'bad')
-    }
-    if ($('#email').attr('class') == 'good') {
-        $('label[for="email"]')[0].innerText = ''
+    if ($('#address').attr('class') == 'good') {
+        $('label[for="address"]')[0].innerText = ''
     }
     submitDisplay()
 }
+
+// function emailValidate() {
+//     $('#email').attr('class', 'good')
+//     var email = $('#email')[0].value
+//     var at = 0, dot = 0
+//     var isAt = false, isDot = false
+//     for (var i=0; i<email.length; i++) {
+//         if ( ('a'>email[i] || email[i]>'z') && ('A'>email[i] || email[i]>'Z') && ('0'>email[i] || email[i]>'9') && email[i]!='@' && email[i]!='.') {
+//             $('label[for="email"]')[0].innerText = 'Only characters a-z, A-Z, 0-9, (@), (.) are allowed'
+//             $('#email').attr('class', 'bad')
+//         } else {
+//             if (email[i]=='@') {
+//                 at++
+//                 isAt = true
+//             }
+//             if (email[i]=='.') {
+//                 // Dot must not after Dot
+//                 if (isDot) {
+//                     $('label[for="email"]')[0].innerText = 'Email can not cotain consecutive dot (.)'
+//                     $('#email').attr('class', 'bad')
+//                 }
+//                 isDot = true
+
+//                 // Dot after At must = 1
+//                 if (isAt) {
+//                     dot++
+//                 }
+//             } else {
+//                 isDot = false
+//             }
+
+//         }
+//     }
+//     if (email[0]=='@' || email[0]=='.' || email[email.length-1]=='@' || email[email.length-1]=='.') {
+//         $('label[for="email"]')[0].innerText = 'The fist and the last characters can be (@) or (.)'
+//         $('#email').attr('class', 'bad')
+//     }
+//     if (at!=1 || dot!=1) {
+//         if (dot != 1) {
+//             $('label[for="email"]')[0].innerText = 'Email must have one and only one (.) character after (@) character'
+//         }
+//         if (at != 1) {
+//             $('label[for="email"]')[0].innerText = 'Email must have one and only one (@) character'
+//         }
+//         $('#email').attr('class', 'bad')
+//     }
+
+//     if (email.length == 0) {
+//         $('label[for="email"]')[0].innerText = 'Email must be filled'
+//         $('#email').attr('class', 'bad')
+//     }
+//     if ($('#email').attr('class') == 'good') {
+//         $('label[for="email"]')[0].innerText = ''
+//     }
+//     submitDisplay()
+// }
 
 
 function submitDisplay() {
     var usernameStatus = $('#username').attr('class'),
         passwordStatus = $('#password').attr('class'),
         phoneStatus = $('#phone').attr('class'),
-        emailStatus = $('#email').attr('class')
-    if (usernameStatus == 'good' && passwordStatus == 'good' && phoneStatus == 'good' && emailStatus == 'good') {
+        addressStatus = $('#address').attr('class')
+    if (usernameStatus == 'good' && passwordStatus == 'good' && phoneStatus == 'good' && addressStatus == 'good') {
         document.getElementById('submit').removeAttribute("disabled")
     } else {
         document.getElementById('submit').setAttribute("disabled", "disabled")

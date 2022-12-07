@@ -90,11 +90,10 @@ class siteController {
                 username: handlerbarsUtil.getUsername(req),
                 cart: handlerbarsUtil.getCart(req),
                 user: {
-                    _id: user._id,
                     username: user.username,
-                    address: user.address,
+                    name: user.name,
                     phone: user.phone,
-                    email: user.email,
+                    address: user.address
                 }
             })
         })
@@ -105,16 +104,17 @@ class siteController {
 
     // POST submit order
     submitOrder(req, res) {
+        var address = `${req.body.detail}, ${req.body.district}, ${req.body.city}`
         Order.create({
-            userid: req.body.userid,
+            username: req.body.username,
             name: req.body.name,
-            address: req.body.address,
             phone: req.body.phone,
-            email: req.body.email,
+            address: address,
             message: req.body.message,
             content: req.body.content
         })
         .then(data => {
+            res.clearCookie('cart')
             res.redirect('/')
         })
         .catch(err => {
