@@ -104,12 +104,25 @@ class siteController {
 
     // POST submit order
     submitOrder(req, res) {
-        var address = `${req.body.detail}, ${req.body.district}, ${req.body.city}`
+        var address
+        if (req.body.district) {
+            address = `${req.body.detail}, ${req.body.district}, ${req.body.city}`
+        } else {
+            address = req.body.detail
+        }
+        var expiration = `${req.body.month}/${req.body.year}`
         Order.create({
             username: req.body.username,
             name: req.body.name,
             phone: req.body.phone,
             address: address,
+            method: req.body.method,
+            cardnumber: req.body.cardnumber,
+            expiration: expiration,
+            ccv: req.body.ccv,
+            cardname: req.body.cardname,
+            billingaddr: req.body.billingaddr,
+            postalcode: req.body.postalcode,
             message: req.body.message,
             content: req.body.content
         })

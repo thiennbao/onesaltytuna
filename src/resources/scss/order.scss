@@ -1,18 +1,17 @@
 @import 'variables';
 
 #order {
-    margin-top: 150px;
     position: relative;
+    margin-top: 100px;
 }
 #order h3 {
     color: $main-color;
-    font-size: 25px;
+    font-size: 15px;
 }
-
-#order-form {
-    width: 50%;
+#info {
+    padding: 10px;
 }
-#order-form input {
+#info input {
     width: 100%;
     height: 40px;
     margin-top: 4%;
@@ -21,16 +20,15 @@
     border: none;
     border-bottom: gray solid 1px;
     font-size: 15px;
-
 }
-#order-form #address-input {
+#info #address-input {
     width: 100%;
 }
-#order-form #address-input input {
+#info #address-input input {
     width: 47%;
 }
-#order-form #address-input select {
-    width: 25%;
+#info #address-input select {
+    width: 24%;
     height: 40px;
     outline: none;
     border: none;
@@ -38,29 +36,74 @@
     font-size: 15px;
     margin-top: 4%;
 }
-#order-form #submit {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%);
-    width: 25%;
-    background-color: $main-color;
-    color: white;
-    font-weight: bold;
+#info input[type="radio"] {
+    width: 15px;
 }
-#order-form label {
+#info label[for="method"], #pay-method span {
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+    margin-right: 7px;
+}
+#info #pay-method {
+    border-bottom: gray solid 1px;
+    margin-left: 1px;
+    padding: 0 10px;
+}
+#info #message {
+    margin-top: 30px;
+}
+#pay {
+    padding: 10px;
+}
+#pay input {
+    width: 100%;
+    height: 40px;
+    margin-top: 4%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: gray solid 1px;
+    font-size: 15px;
+}
+#pay #month, #year, #ccv {
+    width: 32% !important;
+}
+label {
     font-size: 12px;
     color: $main-color;
 }
-#order-form form input.bad {
-    border-bottom: $main-color solid 2px;
+label {
+    display: block;
+    height: 16px;
 }
-#order-form form input.good {
-    border-bottom: lightgreen solid 2px;
+label[for="month"], label[for="year"], label[for="ccv"] {
+    display: inline-block;
+    width: 32%;
+}
+#submit {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%);
+    width: 50%;
+    height: 30px;
+    background-color: $main-color;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.bad {
+    border-bottom: $main-color solid 2px !important;
+}
+.good {
+    border-bottom: lightgreen solid 2px !important;
 }
 
 #cart-table {
-    margin: 50px 0 150px 0;
+    margin: 20px 0 100px 0;
     width: 100%;
     font-size: 12px;
 }
@@ -101,7 +144,12 @@ table, thead, tbody, tr, td {
 
 // For small tablet & large phone
 @media screen and (min-width: 600px) {
-    
+    #order {
+        margin-top: 150px;
+    }
+    #cart-table {
+        margin: 50px 0 150px 0;
+    }
     #cart-table {
         font-size: 14px;
     }
@@ -119,7 +167,26 @@ table, thead, tbody, tr, td {
 
 // For Tablet
 @media screen and (min-width: 768px) {
-
+    #order h3 {
+        color: $main-color;
+        font-size: 25px;
+    }
+    #info {
+        padding: 0;
+        width: 47%;
+        float: left;
+    }
+    #info #message {
+        margin-top: 40px;
+    }
+    #pay {
+        width: 47%;
+        float: right;
+    }
+    #submit {
+        width: 25%;
+        height: 40px;
+    }
     #cart-table thead td {
         width: 20%;
     }
@@ -128,4 +195,5 @@ table, thead, tbody, tr, td {
 
 // For PC
 @media screen and (min-width: 992px) {
+
 }

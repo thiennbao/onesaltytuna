@@ -1,0 +1,120 @@
+section {
+  margin: 100px 150px; }
+
+#super-wallpaper {
+  top: 0;
+  margin: 0; }
+
+#order-list > p {
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 50%;
+  margin: 50px auto; }
+
+#order-list #order-prev, #order-next {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #D3232D; }
+
+#order-list #order-prev {
+  float: left; }
+
+#order-list #order-next {
+  float: right; }
+
+#order-list #order-page {
+  display: inline-block;
+  width: 80px;
+  line-height: 30px;
+  background-color: #D3232D;
+  color: white; }
+
+#order-list > div {
+  margin: 10px 10px 30px 10px;
+  box-shadow: 0px 0px 10px darkgray; }
+
+#order-list h3 {
+  color: #D3232D;
+  text-transform: uppercase; }
+
+#order-list .user-info {
+  width: 40%;
+  height: 400px;
+  padding: 20px 40px;
+  float: left; }
+
+#order-list .user-info p {
+  padding: 10px;
+  border-bottom: lightgray solid 1px; }
+
+#order-list .confirm {
+  position: relative;
+  float: left;
+  width: 40%;
+  height: 100px; }
+
+#order-list .confirm input[type="submit"] {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%);
+  border: #D3232D solid 2px;
+  color: #D3232D;
+  background-color: white;
+  font-weight: bold;
+  width: 50%;
+  height: 40px; }
+
+@keyframes button-bgcolor {
+  to {
+    background-color: #D3232D;
+    color: white; } }
+
+#order-list .confirm input[type="submit"]:hover {
+  animation: button-bgcolor 0.25s forwards; }
+
+#order-list .order-content {
+  float: right;
+  width: 60%;
+  padding: 20px 40px;
+  height: 500px; }
+
+table {
+  margin: 30px 0;
+  width: 100%;
+  font-size: 15px; }
+
+table, thead, tbody, tr, td {
+  border: none;
+  border-collapse: collapse;
+  padding-left: 5px; }
+
+table thead {
+  background-color: #D3232D;
+  height: 40px;
+  font-weight: bold; }
+
+table thead td:first-child {
+  width: 10%; }
+
+table thead td:nth-child(2) {
+  width: 35%; }
+
+table thead td {
+  width: 15%; }
+
+table tbody tr {
+  height: 40px;
+  background-color: ghostwhite; }
+
+table tbody tr:nth-child(even) {
+  background-color: #F2F2F2; }
+
+table tfoot td {
+  font-weight: bold;
+  line-height: 40px;
+  padding-right: 50px;
+  background-color: #D3232D;
+  text-align: right; }

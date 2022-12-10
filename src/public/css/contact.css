@@ -1,0 +1,141 @@
+#contact-wall {
+  overflow: visible; }
+
+#contact-wall div:first-child {
+  height: 100%;
+  overflow: hidden; }
+
+#contact-wall img {
+  height: 200%; }
+
+#contact-form {
+  margin-top: 135px;
+  overflow: visible;
+  position: relative; }
+
+#contact-form form {
+  overflow: visible;
+  width: 100%;
+  padding: 10px;
+  background-color: #F9F9F9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+#contact-form input, #contact-form textarea {
+  margin: 1%;
+  padding: 2%;
+  font-size: 15px;
+  border: lightgray solid 1px;
+  outline: none; }
+
+#contact-form input {
+  height: 40px;
+  width: 100%; }
+
+#contact-form textarea {
+  overflow: hidden;
+  resize: vertical;
+  width: 100%;
+  height: 120px;
+  font-family: unset; }
+
+#contact-form input:last-child {
+  overflow: hidden;
+  width: 60%;
+  margin: 0.4em auto;
+  background-color: #D3232D;
+  color: white;
+  border: none !important;
+  box-shadow: none !important; }
+
+#contact-address {
+  font-size: 16px;
+  color: gray;
+  overflow: visible; }
+
+#contact-address h3 {
+  font-size: 20px;
+  color: #D3232D; }
+
+#contact-address h3::before {
+  content: '----- '; }
+
+#contact-address > a {
+  color: gray;
+  margin: 1em 0;
+  display: block; }
+
+#contact-address > a:hover {
+  color: #D3232D; }
+
+#contact-nav {
+  line-height: 40px;
+  overflow: visible; }
+
+#contact-nav a {
+  position: relative;
+  color: gray;
+  margin: 0 10px; }
+
+#contact-nav svg {
+  width: 25px;
+  height: 25px; }
+
+.tooltip {
+  visibility: hidden;
+  position: absolute; }
+
+#map iframe {
+  width: 100%; }
+
+@media screen and (min-width: 600px) {
+  #contact-form form {
+    width: 60%;
+    padding: 40px; }
+  #contact-address {
+    position: absolute;
+    left: 64%;
+    top: 50px; } }
+
+@media screen and (min-width: 768px) {
+  #contact-form {
+    margin-top: 175px; }
+  #contact-form input:last-child:hover {
+    animation: change_bgcolor 0.25s forwards; }
+  #contact-address h3 {
+    font-size: 25px; }
+  #contact-nav a:hover {
+    color: #D3232D; }
+  #contact-nav {
+    line-height: 80px; }
+  .tooltip {
+    visibility: hidden;
+    overflow: visible;
+    position: absolute;
+    bottom: 180%;
+    transform: translateX(-58%);
+    background-color: black;
+    color: white;
+    line-height: 20px;
+    width: 160px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center; }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent; } }
+
+@media screen and (min-width: 992px) {
+  #contact-form input {
+    height: 45px;
+    width: 48%; }
+  #contact-nav a:hover .tooltip {
+    visibility: visible; } }

@@ -7,8 +7,21 @@ const Order = Schema({
     name: {type: String},
     phone: {type: Number},
     address: {type: String},
+    method: {type: String},
+    cardnumber: {type: String},
+    expiration: {type: String},
+    ccv: {type: String},
+    cardname: {type: String},
+    billingaddr: {type: String},
+    postalcode: {type: String},
     message: {type: String},
-    content: {type: String}
+    content: {type: String},
+    supername: {type: String, default: 0}
+}, {
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
+    }
 })
 
 module.exports = mongoose.model('Order', Order)

@@ -6,7 +6,7 @@ const userController = require('../../app/controllers/UserController')
 const authMiddleware = require('../../app/middleware/AuthMiddleware')
 
 
-// Site
+// User
 router.get('/:user', authMiddleware.checkUser, userController.user)
 
 // Update

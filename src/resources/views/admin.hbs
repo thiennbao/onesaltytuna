@@ -1,0 +1,27 @@
+<section id="super-wallpaper">
+    <img src="img/general/wallpaper-2.jpg" alt="">
+    <h1>ADMIN</h1>
+</section>
+
+<section>
+    <h2 class="heading">CLERK MANAGER</h2>
+    <form action="/addmanager" method="POST">
+        <input type="hidden" name="supername" id="supername">
+        <input type="hidden" name="password">
+        <input type="text" name="name" placeholder="Name">
+        <input type="date" name="birthday">
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="text" name="address" placeholder="Address">
+    </form>
+    {{#each action}}
+        <div>
+
+        </div>
+    {{/each}}
+</section>
+
+<section id="revenue">
+    <h2 class="heading">REVENUE</h2>
+    <div>Order</div>
+    <div>Revenue</div>
+</section>

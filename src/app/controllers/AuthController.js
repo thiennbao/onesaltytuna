@@ -35,7 +35,17 @@ class authController {
                             httpOnly: true,
                             samesite: 'strict'
                         })
-                        res.redirect('/')
+                        switch(user.role) {
+                            case 0:
+                                res.redirect('/')
+                                break
+                            case 1:
+                                res.redirect('/super')
+                                break
+                            case 2:
+                                res.redirect('/admin')
+                                break
+                        }
                     } else {
                         res.json('Wrong password')
                     }

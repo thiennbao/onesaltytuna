@@ -6,55 +6,80 @@
 </section>
 
 <section id="order">
-    <h2 class="heading">ORDER</h2>
+    <h2 class="heading">CHECKOUT</h2>
     <div>
         <h3>USER INFOMATION</h3>
         <div id="order-form">
-            <form method="POST" action="/submitOrder">
-                <input id="username" type="hidden" name="username" value="{{user.username}}" required></input>
-                <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" onblur="nameValidate()" class="{{#if user.name}}good{{/if}}"></input>
-                <label for="name"></label>
-                <input id="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
-                <label for="phone"></label>
-                <div id="address-input">
-                    <input id="detail" type="text" name="detail" placeholder="Address detail" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address}}good{{/if}}"></input>
-                    <select name="district" id="district" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
-                        <option id="userDist" value="{{user.address.dist}}">{{user.address.dist}}</option>
-                        {{#if user.address.city}}{{#unless user.address.dist}}<option id="userDist" value=""></option>{{/unless}}{{/if}}
-                        <option value="1st Dist">1st Dist</option>
-                        <option value="2nd Dist">2nd Dist</option>
-                        <option value="3rd Dist">3rd Dist</option>
-                        <option value="4th Dist">4th Dist</option>
-                        <option value="5th Dist">5th Dist</option>
-                        <option value="6th Dist">6th Dist</option>
-                        <option value="7th Dist">7th Dist</option>
-                        <option value="8th Dist">8th Dist</option>
-                        <option value="9th Dist">9th Dist</option>
-                        <option value="10th Dist">10th Dist</option>
-                        <option value="11th Dist">11th Dist</option>
-                        <option value="12th Dist">12th Dist</option>
-                        <option value="Binh Thanh Dist">Binh Thanh Dist</option>
-                        <option value="Thu Duc Dist">Thu Duc Dist</option>
-                        <option value="Go Vap Dist">Go Vap Dist</option>
-                        <option value="Phu Nhuan Dist">Phu Nhuan Dist</option>
-                        <option value="Tuan Binh Dist">Tan Binh Dist</option>
-                        <option value="Tan Phu Dist">Tan Phu Dist</option>
-                        <option value="Binh Tan Dist">Binh Tan Dist</option>
-                        <option value="Nha Be Dist">Nha Be Dist</option>
-                        <option value="Hoc Mon Dist">Hoc Mon Dist</option>
-                        <option value="Binh Chanh Dist">Binh Chanh Dist</option>
-                        <option value="Cu Chi Dist">Cu Chi Dist</option>
-                        <option value="Can Gio Dist">Can Gio Dist</option>
-                    </select>
-                    <select name="city" id="city" value="{{user.address.city}}" onchange="citySelect()">
-                        <option id="userCity" value="{{user.address.city}}">{{user.address.city}}</option>
-                        <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <label for="address"></label>
+            <form method="POST" action="/submitOrder" onchange="submitDisplay()">
+                <div id="info">
+                    <input id="username" type="hidden" name="username" value="{{user.username}}" required></input>
+                    <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" onblur="nameValidate()" class="{{#if user.name}}good{{/if}}"></input>
+                    <label for="name"></label>
+                    <input id="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
+                    <label for="phone"></label>
+                    <div id="address-input">
+                        <input id="detail" type="text" name="detail" placeholder="Address detail" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address}}good{{/if}}"></input>
+                        <select name="district" id="district" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
+                            {{#if user.address.dist}}<option id="userDist" value="{{user.address.dist}}">{{user.address.dist}}</option>{{/if}}
+                            {{#if user.address.city}}{{#unless user.address.dist}}<option id="userDist" value=""></option>{{/unless}}{{/if}}
+                            <option value="1st Dist">1st Dist</option>
+                            <option value="2nd Dist">2nd Dist</option>
+                            <option value="3rd Dist">3rd Dist</option>
+                            <option value="4th Dist">4th Dist</option>
+                            <option value="5th Dist">5th Dist</option>
+                            <option value="6th Dist">6th Dist</option>
+                            <option value="7th Dist">7th Dist</option>
+                            <option value="8th Dist">8th Dist</option>
+                            <option value="9th Dist">9th Dist</option>
+                            <option value="10th Dist">10th Dist</option>
+                            <option value="11th Dist">11th Dist</option>
+                            <option value="12th Dist">12th Dist</option>
+                            <option value="Binh Thanh Dist">Binh Thanh Dist</option>
+                            <option value="Thu Duc Dist">Thu Duc Dist</option>
+                            <option value="Go Vap Dist">Go Vap Dist</option>
+                            <option value="Phu Nhuan Dist">Phu Nhuan Dist</option>
+                            <option value="Tuan Binh Dist">Tan Binh Dist</option>
+                            <option value="Tan Phu Dist">Tan Phu Dist</option>
+                            <option value="Binh Tan Dist">Binh Tan Dist</option>
+                            <option value="Nha Be Dist">Nha Be Dist</option>
+                            <option value="Hoc Mon Dist">Hoc Mon Dist</option>
+                            <option value="Binh Chanh Dist">Binh Chanh Dist</option>
+                            <option value="Cu Chi Dist">Cu Chi Dist</option>
+                            <option value="Can Gio Dist">Can Gio Dist</option>
+                        </select>
+                        <select name="city" id="city" onchange="citySelect()">
+                            <option id="userCity" value="{{user.address.city}}">{{user.address.city}}</option>
+                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="address"></label>
+                    </div>
+                    <div id="pay-method">
+                    <span>Payment Methods</span>
+                        <input type="radio" name="method" value="cash" checked="checked" onclick="payMethod()">
+                        <label for="method">Cash</label>
+                        <input type="radio" name="method" value="card" onclick="payMethod()">
+                        <label for="method">Card</label>
+                    </div>
+                    <input id="message" type="text" name="message" placeholder="Message"></input>
+                    <input id="cartItem" type="hidden" name="content" value="{{cart}}"></input>
                 </div>
-                <input id="message" type="text" name="message" placeholder="Message"></input>
-                <input id="cartItem" type="hidden" name="content" value="{{cart}}"></input>
+                <div id="pay" style="display: none;">
+                    <input id="cardnumber" type="text" name="cardnumber" placeholder="Card Number" onblur="cardNumberValidate()">
+                    <label for="cardnumber" style="display: block;"></label>
+                    <input id="month" type="text" name="month" placeholder="Exp Month" onblur="monthValidate()">
+                    <input id="year" type="text" name="year" placeholder="Exp Year" onblur="yearValidate()">
+                    <input id="ccv" type="text" name="ccv" placeholder="CCV" onblur="ccvValidate()">
+                    <label for="month"></label>
+                    <label for="year"></label>
+                    <label for="ccv"></label>
+                    <input id="cardname" type="text" name="cardname" placeholder="Name On Card" onblur="nameOnCardValidate()">
+                    <label for="cardname"></label>
+                    <input id="billingaddr" type="text" name="billingaddr" placeholder="Billing Address" onblur="billingAddressValidate()">
+                    <label for="billingaddr"></label>
+                    <input id="postalcode" type="text" name="postalcode" placeholder="Postal Code" onblur="postalCodeValidate()">
+                    <label for="postalcode"></label>
+                </div>
                 <input type="submit" id="submit" value="ORDER" disabled>
             </form>
         </div>
@@ -76,17 +101,3 @@
 </section>
 
 <script src="/javascript/order.js"></script>
-<script>
-    var cartCookie = $('#cartItem').val()
-    var cart = cartCookie.split(';')
-    var grandTotal = 0
-    var cartItem = []
-    for (var i=0; i<cart.length-1; i++) {
-        cartItem[i] = cart[i].split(',')
-    }
-    cartItem.forEach(function (item, index) {
-        document.querySelector('#cart-table tbody').innerHTML += `<tr><td>${index+1}</td><td>${item[0]}</td><td>${item[1]}$</td><td>${item[2]}</td><td>${item[3]}$</td></tr>`
-        grandTotal += Number(item[3])
-    })
-    $('#grandtotal').text(`Grand Total: ${grandTotal}$`)
-</script>
