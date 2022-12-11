@@ -83,6 +83,7 @@
   border: none;
   box-shadow: none;
   width: 30%;
+  height: 30px;
   margin: auto;
   position: absolute;
   left: 50%;
@@ -195,7 +196,9 @@ table, thead, tbody, tr, td {
   #cart table tfoot td p {
     width: 180px;
     line-height: 50px;
-    font-size: 18px; } }
+    font-size: 18px; }
+  #cart #submit {
+    height: 40px; } }
 
 @media screen and (min-width: 992px) {
   #cart {

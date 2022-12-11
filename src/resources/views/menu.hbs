@@ -70,18 +70,3 @@
 </section>
 
 <script src="/javascript/menu.js"></script>
-<script>
-    const dish_type = $('#menu-menu #dish-type div')
-    $('#dishes div').hide()
-    $(`.${document.querySelector('.menu-current').innerText}`).show()
-    for (let i = 0; i < dish_type.length; i++) {
-        dish_type[i].onclick = function() {
-            $(`.${document.querySelector('.menu-current').innerText}`).hide()
-            $('.menu-current').css({"background-color":"white","color":"black"})
-            $('.menu-current').removeClass('menu-current')
-            $(`.${dish_type[i].innerText}`).show()
-            this.style = "background-color:$main-color; color:white"
-            this.classList.add('menu-current')
-        }
-    }
-</script>

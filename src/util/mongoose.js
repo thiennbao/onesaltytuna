@@ -32,7 +32,8 @@ var mongooseUtil = {
         news = news.map(news => news.toObject())
         var newest = []
         for (var i=0; i<amount; i++) {
-            newest[i] = news[i]
+            newest[i] = news[news.length-1-i]
+            newest[i].date = `${news[news.length-1-i].date.getDate()} - ${news[news.length-1-i].date.getMonth()} - ${news[news.length-1-i].date.getFullYear()}`
         }
         return newest
     },

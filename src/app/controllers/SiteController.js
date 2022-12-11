@@ -5,6 +5,7 @@ const Sushi = require('../models/Sushi')
 const News = require('../models/News')
 const User = require('../models/User')
 const Order = require('../models/Order')
+const Contact = require('../models/Contact')
 
 class siteController {
 
@@ -72,6 +73,23 @@ class siteController {
         })
     }
 
+    // POST contact
+    contactForm(req, res) {
+        Contact.create({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            address: req.body.address,
+            message: req.body.message
+        })
+        .then(data => {
+            res.redirect('/contact')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+    }
+
     // POST cart
     cart(req, res) {
         res.cookie('cart', req.body.order)
@@ -93,7 +111,8 @@ class siteController {
                     username: user.username,
                     name: user.name,
                     phone: user.phone,
-                    address: user.address
+                    address: user.address,
+                    card: user.card
                 }
             })
         })

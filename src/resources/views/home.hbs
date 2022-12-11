@@ -81,7 +81,7 @@
         {{/each}}
     </div>
         {{#each news}}
-            <div class="news-detail" id="{{this._id}}">
+            <div class="news-detail" id="{{this._id}}" style="display: none;">
                 <button class="news-close" onclick="newsClose('{{this._id}}')">X</button>
                 <img src="{{this.img}}" alt="{{this.name}}">
                 <div>

@@ -70,14 +70,6 @@ for (let i = 0; i < dishImage.length; i++) {
 };
 
 // News
-function preventScroll(e){
-    e.preventDefault();
-    e.stopPropagation();
-
-    return false;
-}
-
-$('.news-detail').hide()
 function newsOpen(id) {
     $('section > *, #illustrative-image-more').css('filter', 'blur(10px)')
     $('.news-detail').css('filter', 'blur(0px)')

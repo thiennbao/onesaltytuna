@@ -25,10 +25,10 @@
     width: 100%;
 }
 #info #address-input input {
-    width: 47%;
+    width: 100%;
 }
 #info #address-input select {
-    width: 24%;
+    width: 49%;
     height: 40px;
     outline: none;
     border: none;
@@ -175,6 +175,12 @@ table, thead, tbody, tr, td {
         padding: 0;
         width: 47%;
         float: left;
+    }
+    #info #address-input input {
+        width: 47%;
+    }
+    #info #address-input select {
+        width: 24%;
     }
     #info #message {
         margin-top: 40px;

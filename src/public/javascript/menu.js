@@ -1,3 +1,17 @@
+const dish_type = $('#menu-menu #dish-type div')
+$('#dishes div').hide()
+$(`.${document.querySelector('.menu-current').innerText}`).show()
+for (let i = 0; i < dish_type.length; i++) {
+    dish_type[i].onclick = function() {
+        $(`.${document.querySelector('.menu-current').innerText}`).hide()
+        $('.menu-current').css({"background-color":"white","color":"black"})
+        $('.menu-current').removeClass('menu-current')
+        $(`.${dish_type[i].innerText}`).show()
+        this.style = "background-color:$main-color; color:white"
+        this.classList.add('menu-current')
+    }
+}
+
 class Dish {
     constructor (name, price, quantity) {
         this.name = name;
@@ -34,7 +48,7 @@ function table(i) {
 function cart(i) {
 
 }
-for (let i=0; i < dishes.length-1; i++) {
+for (let i=0; i < dishes.length; i++) {
     dishes[i].innerHTML+='<div class="pick"><p>-</p><p>0</p><p>+</p></div>'
     dish[i] = new Dish(dishes[i].children[1].innerText,dishes[i].children[3].innerText.replace(/\s/g,'').replace('$',''),0)
     $('#cart-table tbody').children().eq(i).hide()

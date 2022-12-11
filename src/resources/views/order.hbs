@@ -19,7 +19,7 @@
                     <label for="phone"></label>
                     <div id="address-input">
                         <input id="detail" type="text" name="detail" placeholder="Address detail" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address}}good{{/if}}"></input>
-                        <select name="district" id="district" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
+                        <select name="district" id="district" onchange="ship()" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
                             {{#if user.address.dist}}<option id="userDist" value="{{user.address.dist}}">{{user.address.dist}}</option>{{/if}}
                             {{#if user.address.city}}{{#unless user.address.dist}}<option id="userDist" value=""></option>{{/unless}}{{/if}}
                             <option value="1st Dist">1st Dist</option>
@@ -65,19 +65,19 @@
                     <input id="cartItem" type="hidden" name="content" value="{{cart}}"></input>
                 </div>
                 <div id="pay" style="display: none;">
-                    <input id="cardnumber" type="text" name="cardnumber" placeholder="Card Number" onblur="cardNumberValidate()">
+                    <input id="cardnumber" type="text" name="cardnumber" placeholder="Card Number" value="{{user.card.cardnumber}}" onblur="cardNumberValidate()"  class="{{#if user.card.cardnumber}}good{{/if}}">
                     <label for="cardnumber" style="display: block;"></label>
-                    <input id="month" type="text" name="month" placeholder="Exp Month" onblur="monthValidate()">
-                    <input id="year" type="text" name="year" placeholder="Exp Year" onblur="yearValidate()">
-                    <input id="ccv" type="text" name="ccv" placeholder="CCV" onblur="ccvValidate()">
+                    <input id="month" type="text" name="month" placeholder="Exp Month" value="{{user.card.expiration.month}}" onblur="monthValidate()" class="{{#if user.card.expiration.month}}good{{/if}}">
+                    <input id="year" type="text" name="year" placeholder="Exp Year" value="{{user.card.expiration.year}}" onblur="yearValidate()" class="{{#if user.card.expiration.year}}good{{/if}}">
+                    <input id="ccv" type="text" name="ccv" placeholder="CCV" value="{{user.card.ccv}}" onblur="ccvValidate()" class="{{#if user.card.ccv}}good{{/if}}">
                     <label for="month"></label>
                     <label for="year"></label>
                     <label for="ccv"></label>
-                    <input id="cardname" type="text" name="cardname" placeholder="Name On Card" onblur="nameOnCardValidate()">
+                    <input id="cardname" type="text" name="cardname" placeholder="Name On Card" value="{{user.card.cardname}}" onblur="nameOnCardValidate()" class="{{#if user.card.cardname}}good{{/if}}">
                     <label for="cardname"></label>
-                    <input id="billingaddr" type="text" name="billingaddr" placeholder="Billing Address" onblur="billingAddressValidate()">
+                    <input id="billingaddr" type="text" name="billingaddr" placeholder="Billing Address" value="{{user.card.billingaddr}}" onblur="billingAddressValidate()" class="{{#if user.card.billingaddr}}good{{/if}}">
                     <label for="billingaddr"></label>
-                    <input id="postalcode" type="text" name="postalcode" placeholder="Postal Code" onblur="postalCodeValidate()">
+                    <input id="postalcode" type="text" name="postalcode" placeholder="Postal Code" value="{{user.card.postalcode}}" onblur="postalCodeValidate()" class="{{#if user.card.postalcode}}good{{/if}}">
                     <label for="postalcode"></label>
                 </div>
                 <input type="submit" id="submit" value="ORDER" disabled>

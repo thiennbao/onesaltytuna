@@ -39,17 +39,17 @@ a {
   top: 50%;
   transform: translate(-50%, -100%); }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 1.85vw;
   height: 10px;
   background-color: #F5F5F5; }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-image: url("/img/general/scrollbar.jpg");
   background-size: 300%;
   background-position: center; }
 
-::-webkit-scrollbar-thumb:active {
+body::-webkit-scrollbar-thumb:active {
   background-position: left; }
 
 .heading {

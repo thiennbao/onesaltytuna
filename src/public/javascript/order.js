@@ -12,6 +12,52 @@ cartItem.forEach(function (item, index) {
 })
 $('#grandtotal').text(`Grand Total: ${grandTotal}$`)
 
+// Check dist and city
+function citySelect() {
+    if ($('#city').val() == 'Other') {
+        document.getElementById('district').setAttribute('disabled', 'true')
+        $('#district').val('')
+    } else {
+        document.getElementById('district').removeAttribute('disabled')
+        $('#userDist').hide()
+        $('#district').val('1st Dist')
+    }
+    ship()
+}
+$('#userDistrict').hide()
+$('#userCity').hide()
+
+// Check if pay by card
+function payMethod() {
+    var method = document.querySelectorAll('input:checked')[0].value
+    if (method == 'card') {
+        $('#pay').css('display', 'block')
+    } else {
+        $('#pay').css('display', 'none')
+    }
+}
+
+// Ship
+document.querySelector('#cart-table tbody').innerHTML += '<tr id="ship"></tr>'
+function ship(city, dist) {
+    var ship, grandTotalWithShip
+    var city = $('#city').val(), dist = $('#district').val()
+    if (city == 'Other') {
+        ship = 5
+    } else {
+        if (dist == '1st Dist' || dist == '3rd Dist' || dist == '4th Dist' || dist == '6th Dist' || dist == '8th Dist' || dist == '10th Dist' || dist == '11th Dist' ) {
+            ship = 1
+        } else if (dist == '2nd Dist' || dist == '7th Dist' || dist == 'Tan Phu Dist' || dist == 'Tan Binh Dist' || dist == 'Phu Nhuan Dist') {
+            ship = 2
+        } else {
+            ship = 3
+        }
+    }
+    document.getElementById('ship').innerHTML = `<td></td> <td colspan="3">Shipping charges: </td> <td>${ship}$</td>`
+    grandTotalWithShip = grandTotal + ship
+    $('#grandtotal').text(`Grand Total: ${grandTotalWithShip}$`)
+}
+ship()
 
 // Form validate
 
@@ -238,30 +284,4 @@ function submitWithCardDisplay() {
     }
 }
 
-
-
-// Check dist and city
-function citySelect() {
-    if ($('#city').val() == 'Other') {
-        document.getElementById('district').setAttribute('disabled', 'true')
-        $('#district').val('')
-    } else {
-        document.getElementById('district').removeAttribute('disabled')
-        $('#userDist').hide()
-        $('#district').val('1st Dist')
-    }
-}
-// Check if pay by card
-function payMethod() {
-    var method = document.querySelectorAll('input:checked')[0].value
-    if (method == 'card') {
-        $('#pay').css('display', 'block')
-    } else {
-        $('#pay').css('display', 'none')
-    }
-}
-
-
-$('#userDistrict').hide()
-$('#userCity').hide()
 submitDisplay()

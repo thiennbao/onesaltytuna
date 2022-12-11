@@ -9,6 +9,7 @@ const User = Schema({
     address: {type: Object},
     phone: {type: String},
     email: {type: String},
+    card: {type: Object},
     role: {type: Number, default: 0}
 })
 

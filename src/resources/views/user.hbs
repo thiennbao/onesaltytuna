@@ -2,6 +2,7 @@
     <div>
         <div id="btn">
             <div id="ch-userinfo" class="btn-current">User information</div>
+            <div id="ch-card">Card information</div>
             <div id="ch-password">Change password</div>
             <form id="logout" action="/auth/logout" method="POST"><input type="submit" value="LOG OUT"></form>
         </div>
@@ -53,6 +54,26 @@
                         <label for="address"></label>
                     </div>
                     <input id="ch-userinfo-submit" type="submit" value="UPDATE" disabled>
+                </form>
+            </div>
+            <div id="ch-card-box">
+                <h3>CHANGE CARD INFORMATION</h3>
+                <form method="POST" action="changeCard" id="ch-card-form">
+                    <input id="cardnumber" type="text" name="cardnumber" placeholder="Card Number" value="{{user.card.cardnumber}}" onblur="cardNumberValidate()" class="{{#if user.card.cardnumber}}good{{/if}}">
+                    <label for="cardnumber" style="display: block;"></label>
+                    <input id="month" type="text" name="month" placeholder="Exp Month" value="{{user.card.expiration.month}}" onblur="monthValidate()" class="{{#if user.card.expiration.month}}good{{/if}}">
+                    <input id="year" type="text" name="year" placeholder="Exp Year" value="{{user.card.expiration.year}}" onblur="yearValidate()" class="{{#if user.card.expiration.year}}good{{/if}}">
+                    <input id="ccv" type="text" name="ccv" placeholder="CCV" value="{{user.card.ccv}}" onblur="ccvValidate()" class="{{#if user.card.ccv}}good{{/if}}">
+                    <label for="month"></label>
+                    <label for="year"></label>
+                    <label for="ccv"></label>
+                    <input id="cardname" type="text" name="cardname" placeholder="Name On Card" value="{{user.card.cardname}}" onblur="nameOnCardValidate()" class="{{#if user.card.cardname}}good{{/if}}">
+                    <label for="cardname"></label>
+                    <input id="billingaddr" type="text" name="billingaddr" placeholder="Billing Address" value="{{user.card.billingaddr}}" onblur="billingAddressValidate()" class="{{#if user.card.billingaddr}}good{{/if}}">
+                    <label for="billingaddr"></label>
+                    <input id="postalcode" type="text" name="postalcode" placeholder="Postal Code"  value="{{user.card.postalcode}}" onblur="postalCodeValidate()" class="{{#if user.card.postalcode}}good{{/if}}">
+                    <label for="postalcode"></label>
+                    <input id="ch-card-submit" type="submit" value="UPDATE" disabled>
                 </form>
             </div>
             <div id="ch-password-box">

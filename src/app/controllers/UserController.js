@@ -21,7 +21,8 @@ class userController {
                     name: user.name,
                     phone: user.phone,
                     email: user.email,
-                    address: user.address
+                    address: user.address,
+                    card: user.card
                 }
             })
         })
@@ -51,6 +52,33 @@ class userController {
             res.json(err)
         })
     }
+
+    
+    // POST Change Card
+    changeCard(req, res) {
+        User.findOneAndUpdate({
+            username: handlerbarsUtil.getUsername(req)
+        }, {
+            card: {
+                cardnumber: req.body.cardnumber,
+                expiration: {
+                    year: req.body.year,
+                    month: req.body.month
+                },
+                ccv: req.body.ccv,
+                cardname: req.body.cardname,
+                billingaddr: req.body.billingaddr,
+                postalcode: req.body.postalcode
+            }
+        })
+        .then(user => {
+            res.redirect(`/user/${handlerbarsUtil.getUsername(req)}`)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+    }
+
 
     // POST Change Password
     changePassword(req, res) {
@@ -87,6 +115,7 @@ class userController {
             res.json('Loi sever')
         })
     }
+
 }
 
 module.exports = new userController

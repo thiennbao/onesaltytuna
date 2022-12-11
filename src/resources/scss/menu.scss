@@ -91,6 +91,7 @@
     border: none;
     box-shadow: none;
     width: 30%;
+    height: 30px;
     margin: auto;
     position: absolute;
     left: 50%;
@@ -232,6 +233,9 @@ table, thead, tbody, tr, td {
         width: 180px;
         line-height: 50px;
         font-size: 18px;
+    }
+    #cart #submit {
+        height: 40px;
     }
 }
 

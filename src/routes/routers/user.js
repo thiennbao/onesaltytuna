@@ -12,6 +12,7 @@ router.get('/:user', authMiddleware.checkUser, userController.user)
 // Update
 router.post('/changeUserInfo', userController.changeUserInfo)
 router.post('/changePassword', userController.changePassword)
+router.post('/changeCard', userController.changeCard)
 
 
 module.exports = router
