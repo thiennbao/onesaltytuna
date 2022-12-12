@@ -1,0 +1,201 @@
+@import 'variables';
+
+#user-setting {
+    position: relative;
+    top: 60px;
+    height: 675px;
+    margin-bottom: 150px;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('../img/general/wallpaper-0.jpg');
+}
+#user-setting > div {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 80%;
+    height: 90%;
+    padding: 2% 2% 2% 0;
+    background-color: white;
+}
+#btn {
+    width: 100%;
+    position: relative;
+    padding: 30px;
+}
+#btn .btn-current {
+    color: $main-color;
+    border-bottom: $main-color solid 2px;
+}
+#btn div {
+    width: 60%;
+    border-bottom: gray solid 1px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+#btn #logout {
+    position: absolute;
+    left: 95%;
+    top: 65%;
+    transform: translate(-100%, -50%);
+    width: 30%;
+}
+#btn #logout input {
+    width: 100%;
+    height: 30px;
+    background-color: $main-color;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+#box {
+    position: relative;
+    width: 100%;
+    height: 65%;
+    padding-left: 5%;
+    border-left: gray solid 1px;
+}
+#box h3 {
+    color: $main-color;
+    font-size: 18px;
+    margin: 5px;
+}
+#box input {
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: gray solid 1px;
+    margin-top: 4%;
+    padding: 10px;
+    font-size: 15px;
+}
+#box #address-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#box #address-input input {
+    width: 100%;
+}
+#box #address-input select {
+    width: 49%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: lightgreen solid 2px;
+    font-size: 15px;
+    padding-bottom: 1px;
+    margin-top: 4%;
+}
+#box [type="submit"] {
+    position: absolute;
+    width: 50%;
+    height: 40px;
+    left: 27.5%;
+    bottom: 0;
+    border: none;
+    background-color: $main-color;
+    color: white;
+    font-weight: bold;
+}
+#box label {
+    font-size: 12px;
+    color: $main-color;
+}
+#box form input.bad {
+    border-bottom: $main-color solid 2px;
+}
+#box form input.good {
+    border-bottom: lightgreen solid 2px;
+}
+
+#month, #year, #ccv {
+    width: 32% !important;
+}
+label {
+    display: block;
+    height: 16px;
+}
+label[for="month"], label[for="year"], label[for="ccv"] {
+    display: inline-block;
+    width: 32%;
+}
+
+
+// For small tablet & large phone
+@media screen and (min-width: 600px) {
+    #user-setting {
+        height: 750px;
+    }
+}
+
+// For Tablet
+@media screen and (min-width: 768px) {
+    #user-setting {
+        height: 600px;
+        top: 80px;
+    }
+    #user-setting > div {
+        width: 82%;
+    }
+    #btn {
+        width: 33%;
+        height: 100%;
+        padding: 10px 0;
+        float: left;
+    }
+    #btn div {
+        height: 40px;
+        margin: auto;
+        margin-bottom: 20px;
+        width: 75%;
+    }
+    #btn #logout {
+        top: 89%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 60%;
+    }
+    #btn #logout input {
+        height: 40px;
+    }
+    #box {
+        width: 66%;
+        height: 100%;
+    }
+    #box h3 {
+        font-size: 25px;
+    }
+    #box input {
+        height: 40px;
+    }
+    #box #address-input input {
+        width: 38%;
+    }
+    #box #address-input select {
+        width: 29%;
+    }
+
+}
+
+
+// For PC
+@media screen and (min-width: 992px) {
+    #user-setting > div {
+        right: 37%;
+        width: 700px;
+    }
+    #btn > div:hover {
+        cursor: pointer;
+    }
+    #box #address-input {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    #box #address-input input {
+        width: 37%;
+    }
+    #box #address-input select {
+        width: 30%;
+    }
+}

@@ -1,0 +1,131 @@
+#signup {
+  position: relative;
+  top: 80px;
+  height: 85vh;
+  margin-bottom: 150px;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/general/wallpaper-0.jpg"); }
+
+#signup-form {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 90%;
+  padding: 2%;
+  background-color: white; }
+
+#signup-form h3 {
+  text-align: center;
+  color: #D3232D;
+  font-size: 30px;
+  margin: 15px; }
+
+#signup-form p {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 15px; }
+
+#signup-form p a {
+  color: #D3232D;
+  text-decoration: underline; }
+
+#signup-form form input {
+  overflow: hidden;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: gray solid 1px;
+  height: 40px;
+  margin-top: 4%;
+  padding: 10px;
+  font-size: 15px; }
+
+#signup-form #address-input {
+  width: 100%;
+  margin-bottom: 20px; }
+
+#signup-form #address-input input {
+  width: 37%; }
+
+#signup-form #address-input select {
+  width: 30%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-bottom: lightgreen solid 2px;
+  font-size: 15px;
+  padding-bottom: 1px;
+  margin-top: 4%; }
+
+#signup-form #submit {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  border: none;
+  background-color: #D3232D;
+  color: white;
+  font-weight: bold; }
+
+#signup-form label {
+  font-size: 12px;
+  color: #D3232D; }
+
+#signup-form form input.bad {
+  border-bottom: #D3232D solid 2px; }
+
+#signup-form form input.good {
+  border-bottom: lightgreen solid 2px; }
+
+#success {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh; }
+
+#success-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  height: 50vh;
+  background-color: white;
+  color: #D3232D;
+  box-shadow: 0px 0px 10px darkgray; }
+
+#success-box svg {
+  margin-left: 50%;
+  margin-top: 25%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px; }
+
+#success-box p {
+  font-size: 25px;
+  text-align: center; }
+
+#success-box button {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 30px;
+  margin-top: 15px;
+  border: #D3232D solid 2px;
+  background-color: white;
+  color: #D3232D; }
+
+@keyframes button-bgcolor {
+  to {
+    background-color: #D3232D;
+    color: white; } }
+
+#success-box button:hover {
+  animation: button-bgcolor 0.25s forwards;
+  cursor: pointer; }

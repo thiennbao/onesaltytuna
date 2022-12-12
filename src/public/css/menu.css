@@ -1,0 +1,232 @@
+#menu-wallpaper {
+  overflow: visible;
+  filter: brightness(2); }
+
+#menu-wallpaper div:first-child {
+  height: 100%;
+  overflow: hidden; }
+
+#menu-wallpaper img {
+  height: 200%; }
+
+#menu-menu {
+  margin-top: 110px; }
+
+#menu-menu #dish-type {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px; }
+
+#menu-menu #dish-type div {
+  width: 30%;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none; }
+
+.menu-current {
+  background-color: #D3232D;
+  color: white; }
+
+.pick {
+  display: block !important;
+  position: absolute;
+  right: -5px;
+  bottom: 10px;
+  width: 60%;
+  text-align: center;
+  user-select: none;
+  color: black; }
+
+.pick p {
+  font-size: 10px;
+  display: inline-block;
+  margin: 1px !important;
+  border-radius: 50%;
+  text-align: center;
+  height: 18px;
+  width: 18px;
+  border: #D3232D solid 2px;
+  cursor: pointer; }
+
+.pick p:nth-child(2) {
+  cursor: default;
+  animation: none !important; }
+
+#cart {
+  margin-bottom: 100px;
+  padding: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/general/wallpaper-2.jpg");
+  background-position: center; }
+
+#cart > div {
+  border: #D3232D solid 3px;
+  position: relative;
+  padding: 3%; }
+
+#cart-form h3 {
+  color: white;
+  text-align: center;
+  font-size: 30px; }
+
+#cart-form form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 55%;
+  overflow: visible; }
+
+#cart #submit {
+  background-color: #D3232D;
+  color: white;
+  border: none;
+  box-shadow: none;
+  width: 30%;
+  height: 30px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  bottom: 1%;
+  transform: translateX(-50%);
+  text-align: center;
+  border: none;
+  outline: none; }
+
+#submit:disabled {
+  background-color: gray !important; }
+
+#cart table {
+  margin: 50px 0;
+  width: 100%;
+  font-size: 12px; }
+
+table, thead, tbody, tr, td {
+  border: none;
+  border-collapse: collapse;
+  padding-left: 5px; }
+
+#cart table thead {
+  background-color: #D3232D;
+  line-height: 40px;
+  font-weight: bold; }
+
+#cart table thead td:first-child {
+  width: 10%; }
+
+#cart table thead td:nth-child(2) {
+  width: 35%; }
+
+#cart table thead td {
+  width: 15%; }
+
+#cart table tbody tr {
+  height: 40px;
+  background-color: white; }
+
+#cart table tbody tr:nth-child(even) {
+  background-color: #F2F2F2; }
+
+#cart table tfoot td {
+  font-weight: bold;
+  transform: translateY(10px);
+  position: relative;
+  height: 40px; }
+
+#cart table tfoot td p {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  background-color: #D3232D;
+  border-radius: 50px;
+  text-align: center;
+  width: 110px;
+  line-height: 40px;
+  font-size: 12px; }
+
+@media screen and (min-width: 600px) {
+  #menu-menu #dish-type div {
+    width: 15%; }
+  #cart {
+    padding: 50px; }
+  #cart-form h3 {
+    font-size: 35px; }
+  #cart form {
+    width: 60%; }
+  #cart table {
+    font-size: 14px; }
+  #cart table thead td:first-child {
+    width: 5%; }
+  #cart table thead td:nth-child(2) {
+    width: 30%; }
+  #cart table thead td {
+    width: 10%; }
+  #cart table tfoot td {
+    transform: translateY(20px); }
+  #cart table tfoot td p {
+    width: 150px;
+    font-size: 15px; } }
+
+@media screen and (min-width: 768px) {
+  #menu-menu {
+    margin-top: 150px; }
+  #menu-menu #dish-type div:hover {
+    animation: change_bgcolor 0.3s forwards; }
+  #menu-menu #dish-type {
+    line-height: 60px;
+    font-size: 18px; }
+  .pick {
+    right: 0; }
+  .pick p {
+    padding: 2px 0;
+    margin: 2px !important;
+    height: 22px;
+    width: 22px;
+    cursor: pointer; }
+  .pick p:nth-child(2) {
+    cursor: default;
+    animation: none !important; }
+  .pick p:hover {
+    animation: change_bgcolor 0.25s forwards; }
+  #cart table thead td {
+    width: 20%; }
+  #cart table tfoot td {
+    height: 50px; }
+  #cart table tfoot td p {
+    width: 180px;
+    line-height: 50px;
+    font-size: 18px; }
+  #cart #submit {
+    height: 40px; } }
+
+@media screen and (min-width: 992px) {
+  #cart {
+    margin-bottom: 100px; }
+  #cart > div {
+    width: 60%;
+    margin: auto; }
+  #cart-form h3 {
+    font-size: 40px; }
+  #cart-form svg {
+    transform: scale(3) translateY(-4px);
+    margin-left: 30px; }
+  #cart form input, #cart form textarea {
+    margin: 5px 20px;
+    padding: 8px; }
+  #cart form textarea {
+    height: 120px; }
+  #cart #submit {
+    bottom: 5%; }
+  #submit:hover {
+    cursor: pointer;
+    animation: change_bgcolor 0.25s forwards; }
+  #cart table tfoot td:last-child {
+    font-size: 10px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50px; }
+  .pick p {
+    font-size: 15px;
+    height: 30px;
+    width: 30px; } }

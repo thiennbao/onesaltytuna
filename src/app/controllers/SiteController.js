@@ -3,11 +3,14 @@ const handlerbarsUtil = require('../../util/handlerbars')
 
 const Sushi = require('../models/Sushi')
 const News = require('../models/News')
+const User = require('../models/User')
+const Order = require('../models/Order')
+const Contact = require('../models/Contact')
 
 class siteController {
 
     // GET homepage
-    home(req, res, next) {
+    home(req, res) {
         Sushi.find({})
         .then(sushi => {
 
@@ -37,18 +40,118 @@ class siteController {
     }
 
     // GET about
-    about(req, res, next) {
-        res.send('about')
+    about(req, res) {
+        res.render('about', {
+            about: true,
+            isLoggedin: handlerbarsUtil.isLoggedin(req),
+            username: handlerbarsUtil.getUsername(req),
+        })
     }
 
     // GET menu
-    menu(req, res, next) {
-        res.send('menu')
+    menu(req, res) {
+        Sushi.find({})
+        .then(sushi => {
+            res.render('menu', {
+                menu: true,
+                isLoggedin: handlerbarsUtil.isLoggedin(req),
+                username: handlerbarsUtil.getUsername(req),
+                sushi: mongooseUtil.getData(sushi)
+            })
+        })
+        .catch(err => {
+            res.json(err)
+        })
     }
 
     // GET contact
-    contact(req, res, next) {
-        res.send('contact')
+    contact(req, res) {
+        res.render('contact', {
+            contact: true,
+            isLoggedin: handlerbarsUtil.isLoggedin(req),
+            username: handlerbarsUtil.getUsername(req),
+        })
+    }
+
+    // POST contact
+    contactForm(req, res) {
+        Contact.create({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            address: req.body.address,
+            message: req.body.message
+        })
+        .then(data => {
+            res.redirect('/contact')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+    }
+
+    // POST cart
+    cart(req, res) {
+        res.cookie('cart', req.body.order)
+        res.redirect('/order')
+    }
+
+    // GET order
+    order(req, res) {
+        User.findOne({
+            username: handlerbarsUtil.getUsername(req)
+        })
+        .then(user => {
+            res.render('order', {
+                order: true,
+                isLoggedin: handlerbarsUtil.isLoggedin(req),
+                username: handlerbarsUtil.getUsername(req),
+                cart: handlerbarsUtil.getCart(req),
+                user: {
+                    username: user.username,
+                    name: user.name,
+                    phone: user.phone,
+                    address: user.address,
+                    card: user.card
+                }
+            })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+    }
+
+    // POST submit order
+    submitOrder(req, res) {
+        var address
+        if (req.body.district) {
+            address = `${req.body.detail}, ${req.body.district}, ${req.body.city}`
+        } else {
+            address = req.body.detail
+        }
+        var expiration = `${req.body.month}/${req.body.year}`
+        Order.create({
+            username: req.body.username,
+            name: req.body.name,
+            phone: req.body.phone,
+            address: address,
+            method: req.body.method,
+            cardnumber: req.body.cardnumber,
+            expiration: expiration,
+            ccv: req.body.ccv,
+            cardname: req.body.cardname,
+            billingaddr: req.body.billingaddr,
+            postalcode: req.body.postalcode,
+            message: req.body.message,
+            content: req.body.content
+        })
+        .then(data => {
+            res.clearCookie('cart')
+            res.redirect('/')
+        })
+        .catch(err => {
+            res.json(err)
+        })
     }
 
     

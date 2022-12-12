@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema
 
-const News = Schema({
+const Contact = Schema({
     name: {type: String},
-    content: {type: String},
-    img: {type: String},
-    date: {type: Date, default: new Date()}
+    email: {type: String},
+    phone: {type: String},
+    address: {type: String},
+    message: {type: String},
 }, {
     timestamps: {
         createdAt: 'created_at',
@@ -14,4 +15,4 @@ const News = Schema({
     }
 })
 
-module.exports = mongoose.model('News', News)
+module.exports = mongoose.model('Contact', Contact)

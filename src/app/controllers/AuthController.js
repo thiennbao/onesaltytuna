@@ -35,7 +35,17 @@ class authController {
                             httpOnly: true,
                             samesite: 'strict'
                         })
-                        res.redirect('/')
+                        switch(user.role) {
+                            case 0:
+                                res.redirect('/')
+                                break
+                            case 1:
+                                res.redirect('/super')
+                                break
+                            case 2:
+                                res.redirect('/admin')
+                                break
+                        }
                     } else {
                         res.json('Wrong password')
                     }
@@ -79,7 +89,11 @@ class authController {
                     user: {
                         username: req.body.username,
                         phone: req.body.phone,
-                        email: req.body.email
+                        address: {
+                            city: req.body.city,
+                            dist: req.body.dist,
+                            detail: req.body.detail
+                        }
                     }
                 })
             } else {
@@ -90,7 +104,11 @@ class authController {
                             username: req.body.username,
                             password: hash,
                             phone: req.body.phone,
-                            email: req.body.email
+                            address: {
+                                city: req.body.city,
+                                dist: req.body.dist,
+                                detail: req.body.detail
+                            }
                         })
                         .then(data => {
                             res.render('signup', {
