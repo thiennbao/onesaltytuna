@@ -2,8 +2,11 @@ section {
   margin: 100px 150px; }
 
 #super-wallpaper {
-  top: 0;
+  top: 80px;
   margin: 0; }
+
+#order-list h2 {
+  margin-top: 80px; }
 
 #order-list > p {
   text-align: center;
@@ -35,19 +38,33 @@ section {
   margin: 10px 10px 30px 10px;
   box-shadow: 0px 0px 10px darkgray; }
 
+#order-list #empty {
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  color: gray; }
+
 #order-list h3 {
   color: #D3232D;
   text-transform: uppercase; }
 
 #order-list .user-info {
   width: 40%;
-  height: 400px;
+  height: 450px;
   padding: 20px 40px;
   float: left; }
 
 #order-list .user-info p {
   padding: 10px;
   border-bottom: lightgray solid 1px; }
+
+#order-list .user-info span {
+  background-color: #D3232D;
+  color: white;
+  padding: 5px;
+  float: right;
+  border-radius: 5px;
+  cursor: pointer; }
 
 #order-list .confirm {
   position: relative;

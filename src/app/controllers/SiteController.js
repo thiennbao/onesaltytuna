@@ -18,7 +18,8 @@ class siteController {
             .then( news => {
                 sushi = mongooseUtil.getRandomSushi(sushi, 8)
                 news = mongooseUtil.getNewestNews(news, 3)
-                res.render('home', {
+                res.render('body/site/home', {
+                    userSite: true,
                     home: true,
                     isLoggedin: handlerbarsUtil.isLoggedin(req),
                     username: handlerbarsUtil.getUsername(req),
@@ -41,7 +42,8 @@ class siteController {
 
     // GET about
     about(req, res) {
-        res.render('about', {
+        res.render('body/site/about', {
+            userSite: true,
             about: true,
             isLoggedin: handlerbarsUtil.isLoggedin(req),
             username: handlerbarsUtil.getUsername(req),
@@ -52,7 +54,8 @@ class siteController {
     menu(req, res) {
         Sushi.find({})
         .then(sushi => {
-            res.render('menu', {
+            res.render('body/site/menu', {
+                userSite: true,
                 menu: true,
                 isLoggedin: handlerbarsUtil.isLoggedin(req),
                 username: handlerbarsUtil.getUsername(req),
@@ -66,7 +69,8 @@ class siteController {
 
     // GET contact
     contact(req, res) {
-        res.render('contact', {
+        res.render('body/site/contact', {
+            userSite: true,
             contact: true,
             isLoggedin: handlerbarsUtil.isLoggedin(req),
             username: handlerbarsUtil.getUsername(req),
@@ -102,7 +106,8 @@ class siteController {
             username: handlerbarsUtil.getUsername(req)
         })
         .then(user => {
-            res.render('order', {
+            res.render('body/site/order', {
+                userSite: true,
                 order: true,
                 isLoggedin: handlerbarsUtil.isLoggedin(req),
                 username: handlerbarsUtil.getUsername(req),
@@ -143,7 +148,8 @@ class siteController {
             billingaddr: req.body.billingaddr,
             postalcode: req.body.postalcode,
             message: req.body.message,
-            content: req.body.content
+            content: req.body.content,
+            ship: req.body.ship
         })
         .then(data => {
             res.clearCookie('cart')

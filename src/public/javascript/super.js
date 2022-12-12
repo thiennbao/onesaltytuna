@@ -1,55 +1,175 @@
-
-function fillTable() {
-    var order = document.querySelectorAll('#order-list > div')
-    for (var i=0; i<order.length; i++) {
-        var cart = document.querySelectorAll('.cart')[i].innerText
-        var cartItem = cart.split(';')
-        var grandTotal = 0
-        var cartContent = []
-        for (var j=0; j<cartItem.length-1; j++) {
-            cartContent[j] = cartItem[j].split(',')
-        }
-        cartContent.forEach(function (item, index) {
-            document.querySelectorAll('.order-content tbody')[i].innerHTML += `<tr><td>${index+1}</td><td>${item[0]}</td><td>${item[1]}$</td><td>${item[2]}</td><td>${item[3]}$</td></tr>`
-            grandTotal += Number(item[3])
-        })
-        document.querySelectorAll('.grandtotal')[i].innerText = `Grand Total: ${grandTotal}$`
+const button = $('#btn > div')
+$('#box > div').hide()
+$(`#${document.querySelector('.btn-current').id}-box`).show()
+for (let i = 0; i < button.length; i++) {
+    button[i].onclick = function() {
+        $(`#${document.querySelector('.btn-current').id}-box`).hide()
+        $(`#${button[i].id}-box`).show()
+        $('.btn-current').removeClass('btn-current')
+        this.classList.add('btn-current')
     }
 }
 
-// Pagination for Order list
-var page = 1
-function loadPage(pg) {
-    $.ajax({
-        url: `./super?page=${pg}`,
-        type: 'GET'
-    })
-    .then(data => {
-        var start = data.indexOf('<',data.indexOf('<span id="order-list-start"></span>'))
-        var end = data.indexOf('<span id="order-list-end"></span>')
-        var list = data.slice(start, end)
-        var check = data.indexOf('<div>',data.indexOf('<span id="order-list-start"></span>'))
-        if (check != -1) {
-            $('#order-list').html(list)
-            $('#order-page').text(pg)
-            fillTable()
+// User info validate
+function phoneValidate() {
+    $('#phone').attr('class', 'good')
+    var phone = $('#phone')[0].value
+    if (phone.length != 10) {
+        $('label[for="phone"]')[0].innerText = 'Phone must be 10 numbers'
+        $('#phone').attr('class', 'bad')
+    }
+    for (var i=0; i<phone.length; i++) {
+        if ('0'> phone[i] || phone[i] > '9') {
+            $('label[for="phone"]')[0].innerText = 'Only numbers 0-9 are allowed'
+            $('#phone').attr('class', 'bad')
+            break
+        }
+    }
+    if ($('#phone').attr('class') == 'good') {
+        $('label[for="phone"]')[0].innerText = ''
+    }
+    userinfoSubmitDisplay()
+}
+function emailValidate() {
+    $('#email').attr('class', 'good')
+    var email = $('#email')[0].value
+    var at = 0, dot = 0
+    var isAt = false, isDot = false
+    for (var i=0; i<email.length; i++) {
+        if ( ('a'>email[i] || email[i]>'z') && ('A'>email[i] || email[i]>'Z') && ('0'>email[i] || email[i]>'9') && email[i]!='@' && email[i]!='.') {
+            $('label[for="email"]')[0].innerText = 'Email is not valid'
+            $('#email').attr('class', 'bad')
         } else {
-            page--
+            if (email[i]=='@') {
+                at++
+                isAt = true
+            }
+            if (email[i]=='.') {
+                if (isDot) {
+                    $('label[for="email"]')[0].innerText = 'Email is not valid'
+                    $('#email').attr('class', 'bad')
+                }
+                isDot = true
+                if (isAt) {
+                    dot++
+                }
+            } else {
+                isDot = false
+            }
+
         }
-    })
-    .catch(err => {
-        console.log('ERROR')
-    })
-}
-function orderPrev() {
-    page--
-    if (page < 1) {
-        page = 1
     }
-    loadPage(page)
+    if (email[0]=='@' || email[0]=='.' || email[email.length-1]=='@' || email[email.length-1]=='.') {
+        $('label[for="email"]')[0].innerText = 'Email is not valid'
+        $('#email').attr('class', 'bad')
+    }
+    if (at!=1 || dot!=1) {
+        if (dot != 1) {
+            $('label[for="email"]')[0].innerText = 'Email is not valid'
+        }
+        if (at != 1) {
+            $('label[for="email"]')[0].innerText = 'Email is not valid'
+        }
+        $('#email').attr('class', 'bad')
+    }
+
+    if (email.length == 0) {
+        $('label[for="email"]')[0].innerText = 'Email must be filled'
+        $('#email').attr('class', 'bad')
+    }
+    if ($('#email').attr('class') == 'good') {
+        $('label[for="email"]')[0].innerText = ''
+    }
+    userinfoSubmitDisplay()
 }
-function orderNext() {
-    page++
-    loadPage(page)
+function addressValidate() {
+    $('#detail').attr('class', 'good')
+    var address = $('#detail')[0].value
+    if (address.length <= 0) {
+        $('label[for="address"]')[0].innerText = 'Address must be filled'
+        $('#detail').attr('class', 'bad')
+    }
+    if ($('#detail').attr('class') == 'good') {
+        $('label[for="address"]')[0].innerText = ''
+    }
+    userinfoSubmitDisplay()
 }
-loadPage(page)
+function userinfoSubmitDisplay() {
+    var phoneStatus = $('#phone').attr('class'),
+        emailStatus = $('#email').attr('class'),
+        addressStatus = $('#detail').attr('class')
+    if (phoneStatus == 'good' && emailStatus == 'good' && addressStatus == 'good') {
+        document.getElementById('ch-userinfo-submit').removeAttribute("disabled")
+    } else {
+        document.getElementById('ch-userinfo-submit').setAttribute("disabled", "disabled")
+    }
+}
+
+function citySelect() {
+    if ($('#city').val() == 'Other') {
+        document.getElementById('dist').setAttribute('disabled', 'true')
+        $('#dist').val('')
+    } else {
+        document.getElementById('dist').removeAttribute('disabled')
+        $('#dist').val('1st Dist')
+    }
+    userinfoSubmitDisplay()
+}
+
+$('#userDistrict').hide()
+$('#userCity').hide()
+
+
+// Password validate
+function passwordValidate() {
+    $('#password').attr('class', 'good')
+    var password = $('#password')[0].value
+    if (password.length < 8) {
+        $('label[for="password"]')[0].innerText = 'Password must be more than or equal to 8 characters in length'
+        $('#password').attr('class', 'bad')
+    }
+    if ($('#password').attr('class') == 'good') {
+        $('label[for="password"]')[0].innerText = ''
+    }
+    passwordSubmitDisplay()
+}
+function newPasswordValidate() {
+    $('#new-password').attr('class', 'good')
+    var newPassword = $('#new-password')[0].value
+    if (newPassword.length < 8) {
+        $('label[for="new-password"]')[0].innerText = 'Password must be more than or equal to 8 characters in length'
+        $('#new-password').attr('class', 'bad')
+    }
+    if ($('#new-password').attr('class') == 'good') {
+        $('label[for="new-password"]')[0].innerText = ''
+    }
+    passwordSubmitDisplay()
+}
+function submitPasswordValidate() {
+    $('#submit-password').attr('class', 'good')
+    var submitPassword = $('#submit-password')[0].value
+    var newPassword = $('#new-password')[0].value
+    if (submitPassword.length < 8) {
+        $('label[for="submit-password"]')[0].innerText = 'Password must be more than or equal to 8 characters in length'
+        $('#submit-password').attr('class', 'bad')
+    }
+    if (submitPassword != newPassword) {
+        $('label[for="submit-password"]')[0].innerText = 'Password does not match'
+        $('#submit-password').attr('class', 'bad')
+    }
+    if ($('#submit-password').attr('class') == 'good') {
+        $('label[for="submit-password"]')[0].innerText = ''
+    }
+    passwordSubmitDisplay()
+}
+
+function passwordSubmitDisplay() {
+    var passwordStatus = $('#password').attr('class'),
+        newPasswordStatus = $('#new-password').attr('class'),
+        submitPasswordStatus = $('#submit-password').attr('class')
+    if (passwordStatus == 'good' && newPasswordStatus == 'good' && submitPasswordStatus == 'good') {
+        document.getElementById('ch-password-submit').removeAttribute("disabled")
+    } else {
+        document.getElementById('ch-password-submit').setAttribute("disabled", "disabled")
+    }
+}

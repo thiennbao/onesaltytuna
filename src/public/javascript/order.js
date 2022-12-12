@@ -56,6 +56,7 @@ function ship(city, dist) {
     document.getElementById('ship').innerHTML = `<td></td> <td colspan="3">Shipping charges: </td> <td>${ship}$</td>`
     grandTotalWithShip = grandTotal + ship
     $('#grandtotal').text(`Grand Total: ${grandTotalWithShip}$`)
+    $('#ship-input').val(ship)
 }
 ship()
 

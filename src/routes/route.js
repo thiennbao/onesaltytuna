@@ -4,6 +4,7 @@ const userRouter = require('./routers/user')
 const superRouter = require('./routers/super')
 const adminRouter = require('./routers/admin')
 
+
 function route(app) {
 
     app.use('/auth', authRouter)

@@ -1,0 +1,19 @@
+<nav>
+    {{!-- Logo --}}
+    <div id="logo">
+        <a><img src="/img/general/logo.png" alt="logo"></a>
+    </div>
+
+    {{!-- Super navigation --}}
+    <div id="nav">
+        <a href="/super/list " class="{{#if list}}active{{/if}}">ORDER LIST</a>
+        <a href="/super/storage" class="{{#if storage}}active{{/if}}">STORAGE</a>
+        <a href="/super/search" class="{{#if search}}active{{/if}}">SEARCH</a>
+    </div>
+
+    {{!-- Account --}}
+    <div id="account">
+        <a id="userNav" href="/super/{{username}}" class="{{#if userSetting}}active{{/if}}">HI, {{username}}</a>
+    </div>
+
+</nav>

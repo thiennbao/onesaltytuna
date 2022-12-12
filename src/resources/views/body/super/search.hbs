@@ -1,0 +1,77 @@
+<section id="super-wallpaper">
+    <img src="/img/general/wallpaper-1.jpg" alt="">
+    <h1>SEARCH</h1>
+</section>
+
+<section id="search">
+    <h2 class="heading">SEARCH</h2>
+    <div id="search-form">
+        <input type="text" name="username" placeholder="User name">
+        <input type="text" name="phone" placeholder="Phone">
+        <div id="method-box">
+            <span>Payment Method</span>
+            <input type="radio" name="method" value="all" checked="checked">
+            <input type="radio" name="method" value="cash">
+            <input type="radio" name="method" value="card">
+        </div>
+        <div id="status-box">
+            <span>Order Status</span>
+            <input type="radio" name="status" value="all" checked="checked">
+            <input type="radio" name="status" value="in process">
+            <input type="radio" name="status" value="closed">
+        </div>
+        <input type="submit" value="SEARCH" onclick="searchBtn()">
+    </div>
+</section>
+
+<section id="search-list">
+    <span id="search-list-start"></span>
+    <h2 class="heading">FOUND ITEM</h2>
+    <p id="search-pagination"><span id="search-prev" onclick="searchPrev()">Prev</span><span id="search-page"></span><span id="search-next" onclick="searchNext()">Next</span></p>
+    {{#each foundItem}}
+        <div>
+            <div class="user-info">
+                <h3>Order from &#60{{this.username}}&#62</h3>
+                <div class="user" id="user-{{this._id}}">
+                    <p class="name">{{this.name}}</p>
+                    <p class="phone">{{this.phone}}</p>
+                    <p class="address">{{this.address}}</p>
+                    {{#if this.message}}<p class="message">{{this.message}}</p>{{/if}}
+                    <p class="method">{{this.method}}</p>
+                    <span class="card-btn" onclick="showCard('{{this._id}}')" style="visibility: hidden;">Show card info</span>
+                </div>
+                <div class="card" style="display: none;" id="card-{{this._id}}">
+                    <p class="cardnumber">{{this.cardnumber}}</p>
+                    <p class="expiration">{{this.expiration}}</p>
+                    <p class="cardname">{{this.cardname}}</p>
+                    <p class="billingaddr">{{this.billingaddr}}</p>
+                    <p class="postalcode">{{this.postalcode}}</p>
+                    <span onclick="hideCard('{{this._id}}')">Show user info</span>
+                </div>
+            </div>
+            <div class="order-content">
+                <h3>Content</h3>
+                <table>
+                    <span class="cart" style="display: none;">{{this.content}}</span>
+                    <span class="ship" style="display: none;">{{this.ship}}</span>
+                    <thead>
+                        <td>No</td>
+                        <td>Dish</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <td class="grandtotal" colspan="5"><p><span></span></p></td>
+                    </tfoot>
+                </table> 
+            </div>
+        </div>
+    {{/each}}
+    <div id="empty" style="display: none;">Nothing was found</div>
+    <span id="search-list-end"></span>
+</section>
+
+<script src="/javascript/search.js"></script>

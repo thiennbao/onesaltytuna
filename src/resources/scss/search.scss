@@ -1,0 +1,173 @@
+@import 'variables';
+
+section {
+    margin: 100px 150px;
+}
+#super-wallpaper {
+    top: 80px;
+    margin: 0;
+}
+#search h2 {
+    margin-top: 80px;
+}
+#search-form {
+    position: relative;
+    height: 300px;
+}
+#search-form input[type="text"] {
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    border: gray solid 1px;
+}
+#search-form div {
+    height: 40px;
+}
+#search-form div span{
+    display: inline-block;
+    width: 180px;
+}
+#search-form input[type="radio"] {
+    width: 180px;
+    height: 20px;
+}
+#search-form input[value="cash"]::before {
+    content: 'Cash';
+    font-size: 15px;
+}
+#search-form input[value="card"]::before {
+    content: 'Card';
+    font-size: 15px;
+}
+#search-form input[value="in process"]::before {
+    content: 'In process';
+    font-size: 15px;
+}
+#search-form input[value="closed"]::before {
+    content: 'Closed';
+    font-size: 15px;
+}
+#search-form input[value="all"]::before {
+    content: 'All';
+    font-size: 15px;
+}
+#search-form input[type="submit"] {
+    position: absolute;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 30px;
+    border: none;
+    background-color: $main-color;
+    color: white;
+    margin-top: 20px;
+
+}
+#search-list h2 {
+    margin-top: 80px;
+}
+#search-list > p {
+    text-align: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 50%;
+    margin: 50px auto;
+}
+#search-list #search-prev, #search-next {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $main-color;
+}
+#search-list #search-prev {
+    float: left;
+}
+#search-list #search-next {
+    float: right;
+}
+#search-list #search-page {
+    display: inline-block;
+    width: 80px;
+    line-height: 30px;
+    background-color: $main-color;
+    color: white;
+}
+#search-list > div {
+    margin: 10px 10px 30px 10px;
+    box-shadow: 0px 0px 10px darkgray;
+}
+#search-list #empty {
+    line-height: 200px;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+}
+#search-list h3 {
+    color: $main-color;
+    text-transform: uppercase;
+}
+#search-list .user-info {
+    width: 40%;
+    height: 450px;
+    padding: 20px 40px;
+    float: left;
+}
+#search-list .user-info p {
+    padding: 10px;
+    border-bottom: lightgray solid 1px;
+}
+#search-list .user-info span {
+    background-color: $main-color;
+    color: white;
+    padding: 5px;
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#search-list .order-content {
+    float: right;
+    width: 60%;
+    padding: 20px 40px;
+    height: 500px;
+}
+table {
+    margin: 30px 0;  
+    width: 100%;
+    font-size: 15px;
+}
+table, thead, tbody, tr, td {
+    border: none;
+    border-collapse: collapse;
+    padding-left: 5px;
+}
+table thead {
+    background-color: $main-color;
+    height: 40px;
+    font-weight: bold;
+}
+table thead td:first-child {
+    width: 10%;
+}
+table thead td:nth-child(2) {
+    width: 35%;
+}
+table thead td {
+    width: 15%;
+}
+table tbody tr {
+    height: 40px;
+    background-color: ghostwhite;
+}
+table tbody tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+table tfoot td {
+    font-weight: bold;
+    line-height: 40px;
+    padding-right: 50px;
+    background-color: $main-color;
+    text-align: right;
+}

@@ -1,0 +1,72 @@
+<div id="user-setting" {{#if success}}style="filter: blur(10px)"{{/if}}>
+    <div>
+        <div id="btn">
+            <div id="ch-userinfo" class="btn-current">User information</div>
+            <div id="ch-password">Change password</div>
+            <form id="logout" action="/auth/logout" method="POST"><input type="submit" value="LOG OUT"></form>
+        </div>
+        <div id="box">
+            <div id="ch-userinfo-box">
+                <form method="POST" action="changeSuperInfo" id="ch-userinfo-form">
+                    <h3>USER INFORMATION</h3>
+                    <input id="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" onblur="phoneValidate()" class="{{#if user.phone}}good{{/if}}"></input>
+                    <label for="phone"></label>
+                    <input id="email" type="text" name="email" placeholder="Email" value="{{user.email}}" onblur="emailValidate()" class="{{#if user.email}}good{{/if}}"></input>
+                    <label for="email"></label>
+                    <div id="address-input">
+                        <input id="detail" type="text" name="detail" placeholder="Address" value="{{user.address.detail}}" onblur="addressValidate()" class="{{#if user.address.detail}}good{{/if}}"></input>
+                        <select name="dist" id="dist" onchange="userinfoSubmitDisplay()" {{#if user.address.city}}{{#unless user.address.dist}}disabled{{/unless}}{{/if}}>
+                            {{#if user.address.dist}}<option id="userDist" value="{{user.address.dist}}">{{user.address.dist}}</option>{{/if}}
+                            {{#if user.address.city}}{{#unless user.address.dist}}<option id="userDist" value=""></option>{{/unless}}{{/if}}
+                            <option value="1st Dist">1st Dist</option>
+                            <option value="2nd Dist">2nd Dist</option>
+                            <option value="3rd Dist">3rd Dist</option>
+                            <option value="4th Dist">4th Dist</option>
+                            <option value="5th Dist">5th Dist</option>
+                            <option value="6th Dist">6th Dist</option>
+                            <option value="7th Dist">7th Dist</option>
+                            <option value="8th Dist">8th Dist</option>
+                            <option value="9th Dist">9th Dist</option>
+                            <option value="10th Dist">10th Dist</option>
+                            <option value="11th Dist">11th Dist</option>
+                            <option value="12th Dist">12th Dist</option>
+                            <option value="Binh Thanh Dist">Binh Thanh Dist</option>
+                            <option value="Thu Duc Dist">Thu Duc Dist</option>
+                            <option value="Go Vap Dist">Go Vap Dist</option>
+                            <option value="Phu Nhuan Dist">Phu Nhuan Dist</option>
+                            <option value="Tuan Binh Dist">Tan Binh Dist</option>
+                            <option value="Tan Phu Dist">Tan Phu Dist</option>
+                            <option value="Binh Tan Dist">Binh Tan Dist</option>
+                            <option value="Nha Be Dist">Nha Be Dist</option>
+                            <option value="Hoc Mon Dist">Hoc Mon Dist</option>
+                            <option value="Binh Chanh Dist">Binh Chanh Dist</option>
+                            <option value="Cu Chi Dist">Cu Chi Dist</option>
+                            <option value="Can Gio Dist">Can Gio Dist</option>
+                        </select>
+                        <select name="city" id="city" onchange="citySelect()">
+                            {{#if user.address.city}}<option id="userCity" value="{{user.address.city}}">{{user.address.city}}</option>{{/if}}
+                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="address"></label>
+                    </div>
+                    <input id="ch-userinfo-submit" type="submit" value="UPDATE" disabled>
+                </form>
+            </div>
+            <div id="ch-password-box">
+                <h3>CHANGE PASSWORD</h3>
+                <form method="POST" action="changePassword" id="ch-password-form">
+                    <input id="password" type="password" name="password" placeholder="Old password" onblur="passwordValidate()">
+                    <label for="password"></label>
+                    <input id="new-password" type="password" name="newPassword" placeholder="New password" onblur="newPasswordValidate()">
+                    <label for="new-password"></label>
+                    <input id="submit-password" type="password" placeholder="Submit new password" onblur="submitPasswordValidate()">
+                    <label for="submit-password"></label>
+                    <input id="ch-password-submit" type="submit" value="UPDATE" disabled>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascript/super.js"></script>

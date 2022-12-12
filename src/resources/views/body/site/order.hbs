@@ -63,6 +63,7 @@
                     </div>
                     <input id="message" type="text" name="message" placeholder="Message"></input>
                     <input id="cartItem" type="hidden" name="content" value="{{cart}}"></input>
+                    <input id="ship-input" type="hidden" name="ship">
                 </div>
                 <div id="pay" style="display: none;">
                     <input id="cardnumber" type="text" name="cardnumber" placeholder="Card Number" value="{{user.card.cardnumber}}" onblur="cardNumberValidate()"  class="{{#if user.card.cardnumber}}good{{/if}}">

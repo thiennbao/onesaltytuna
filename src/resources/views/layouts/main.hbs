@@ -12,7 +12,6 @@
     {{#if about}}<link rel="stylesheet" href="/css/about.css">{{/if}}
     {{#if menu}}<link rel="stylesheet" href="/css/menu.css">{{/if}}
     {{#if contact}}<link rel="stylesheet" href="/css/contact.css">{{/if}}
-
     {{#if order}}<link rel="stylesheet" href="/css/order.css">{{/if}}
 
     {{#if login}}<link rel="stylesheet" href="/css/login.css">{{/if}}
@@ -20,7 +19,12 @@
 
     {{#if userSetting}}<link rel="stylesheet" href="/css/user.css">{{/if}}
 
-    {{#if super}}<link rel="stylesheet" href="/css/super.css">{{/if}}
+    {{#if list}}<link rel="stylesheet" href="/css/list.css">{{/if}}
+    {{#if storage}}<link rel="stylesheet" href="/css/storage.css">{{/if}}
+    {{#if search}}<link rel="stylesheet" href="/css/search.css">{{/if}}
+
+
+    
     {{#if admin}}<link rel="stylesheet" href="/css/admin.css">{{/if}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -29,11 +33,14 @@
 
 <body>
     
-    <header>{{#unless noHeader}} {{> header}} {{/unless}}</header>
+    {{#if userSite}} <header> {{> header}} </header> {{/if}}
+    {{#if superSite}} <header> {{> sheader}} </header> {{/if}}
+    {{#if adminSite}} <header> {{> aheader}} </header> {{/if}}
+
 
     {{{body}}}
 
-    <footer>{{#unless noHeader}} {{> footer}} {{/unless}}</footer>
+    {{#if userSite}} <footer> {{> footer}} </footer> {{/if}}
 
 </body>
 </html>

@@ -1,0 +1,56 @@
+<section id="super-wallpaper">
+    <img src="/img/general/wallpaper-1.jpg" alt="">
+    <h1>STORAGE</h1>
+</section>
+
+<section id="storage-list">
+    <span id="storage-list-start"></span>
+    <h2 class="heading">STORAGE</h2>
+    <p id="storage-pagination"><span id="storage-prev" onclick="storagePrev()">Prev</span><span id="storage-page"></span><span id="storage-next" onclick="storageNext()">Next</span></p>
+    {{#each storageItem}}
+        <div>
+            <div class="user-info">
+                <h3>Order from &#60{{this.username}}&#62</h3>
+                <div class="user" id="user-{{this._id}}">
+                    <p class="name">{{this.name}}</p>
+                    <p class="phone">{{this.phone}}</p>
+                    <p class="address">{{this.address}}</p>
+                    {{#if this.message}}<p class="message">{{this.message}}</p>{{/if}}
+                    <p class="method">{{this.method}}</p>
+                    <span class="card-btn" onclick="showCard('{{this._id}}')" style="visibility: hidden;">Show card info</span>
+                </div>
+                <div class="card" style="display: none;" id="card-{{this._id}}">
+                    <p class="cardnumber">{{this.cardnumber}}</p>
+                    <p class="expiration">{{this.expiration}}</p>
+                    <p class="cardname">{{this.cardname}}</p>
+                    <p class="billingaddr">{{this.billingaddr}}</p>
+                    <p class="postalcode">{{this.postalcode}}</p>
+                    <span onclick="hideCard('{{this._id}}')">Show user info</span>
+                </div>
+            </div>
+            <div class="order-content">
+                <h3>Content</h3>
+                <table>
+                    <span class="cart" style="display: none;">{{this.content}}</span>
+                    <span class="ship" style="display: none;">{{this.ship}}</span>
+                    <thead>
+                        <td>No</td>
+                        <td>Dish</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <td class="grandtotal" colspan="5"><p><span></span></p></td>
+                    </tfoot>
+                </table> 
+            </div>
+        </div>
+    {{/each}}
+    <div id="empty" style="display: none;">Storage is empty</div>
+    <span id="storage-list-end"></span>
+</section>
+
+<script src="/javascript/storage.js"></script>

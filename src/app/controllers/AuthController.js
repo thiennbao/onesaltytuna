@@ -9,7 +9,8 @@ class authController {
     
     // GET Login
     login(req, res) {
-        res.render('login', {
+        res.render('body/auth/login', {
+            userSite: true,
             login: true,
         })
     }
@@ -36,13 +37,13 @@ class authController {
                             samesite: 'strict'
                         })
                         switch(user.role) {
-                            case 0:
+                            case 'user':
                                 res.redirect('/')
                                 break
-                            case 1:
-                                res.redirect('/super')
+                            case 'super':
+                                res.redirect('/super/list')
                                 break
-                            case 2:
+                            case 'admin':
                                 res.redirect('/admin')
                                 break
                         }
@@ -62,16 +63,10 @@ class authController {
         })
     }
 
-    // Log out
-    logout(req, res) {
-        res.clearCookie('token')
-        res.clearCookie('user')
-        res.redirect('/')
-    }
-
     // GET Signup
     signup(req, res) {
-        res.render('signup', {
+        res.render('body/auth/signup', {
+            userSite: true,
             signup: true,
         })
     }
@@ -83,7 +78,8 @@ class authController {
         })
         .then(data => {
             if (data) {
-                res.render('signup', {
+                res.render('body/auth/signup', {
+                    userSite: true,
                     signup: true,
                     notAvailable: true,
                     user: {
@@ -111,7 +107,8 @@ class authController {
                             }
                         })
                         .then(data => {
-                            res.render('signup', {
+                            res.render('body/auth/signup', {
+                                userSite: true,
                                 signup: true,
                                 success: true
                             })
@@ -123,6 +120,13 @@ class authController {
         .catch(err => {
             res.send('ERROR')
         })
+    }
+
+    // Log out
+    logout(req, res) {
+        res.clearCookie('token')
+        res.clearCookie('user')
+        res.redirect('/')
     }
 }
 

@@ -7,7 +7,7 @@ const authMiddleware = require('../../app/middleware/AuthMiddleware')
 
 
 // User
-router.get('/:user', authMiddleware.checkUser, userController.user)
+router.get('/:user', authMiddleware.checkIsUser, authMiddleware.checkUser, userController.user)
 
 // Update
 router.post('/changeUserInfo', userController.changeUserInfo)

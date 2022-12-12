@@ -38,6 +38,42 @@ var mongooseUtil = {
         return newest
     },
 
+    // Searching
+    searchOrder(order, req) {
+        var foundItem = order.map(order => order.toObject())
+        var i = 0
+        var keys = ['username', 'phone', 'method', 'status']
+        keys.forEach((key) => {
+            if (req.query[key]) {
+                console.log(req.query[key])
+            }
+        })
+        keys.forEach(function(key) {
+            if (req.query[key]) {
+                foundItem.forEach(function(item, index) {
+                    if (item[key].toString().search(req.query[key]) != -1) {
+                        foundItem[i] = item
+                        i++
+                    }
+                })
+                foundItem.splice(i, foundItem.length)
+                i = 0
+            }
+
+        })
+        var page = req.query.page
+        if (page > 1) {
+            page = Number(page)
+        } else {
+            page = 1
+        }
+        const pageSize = 3
+        var start = ( page - 1 ) * pageSize
+        foundItem.splice(0, start)
+        foundItem.splice(start + pageSize, foundItem.length)
+        return foundItem
+    }
+
 }
 
 module.exports = mongooseUtil

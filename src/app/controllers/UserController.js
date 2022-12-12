@@ -12,12 +12,14 @@ class userController {
             username: handlerbarsUtil.getUsername(req)
         })
         .then(user => {
-            res.render('user', {
+            res.render('body/user/user', {
+                userSite: true,
                 userSetting: true,
                 isLoggedin: handlerbarsUtil.isLoggedin(req),
                 username: handlerbarsUtil.getUsername(req),
                 cart: handlerbarsUtil.getCart(req),
                 user: {
+                    userSite: true,
                     name: user.name,
                     phone: user.phone,
                     email: user.email,

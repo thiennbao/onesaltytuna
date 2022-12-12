@@ -16,7 +16,9 @@ const Order = Schema({
     postalcode: {type: String},
     message: {type: String},
     content: {type: String},
-    supername: {type: String, default: 0}
+    ship: {type: Number},
+    supername: {type: String, default: ''},
+    status: {type: String, default: 'in process'}
 }, {
     timestamps: {
         createdAt: 'created_at',
