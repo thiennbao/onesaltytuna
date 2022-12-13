@@ -1,0 +1,64 @@
+<section id="admin-menu-wallpaper">
+    <img src="/img/general/wallpaper-2.jpg" alt="">
+    <h1>MENU MANAGE</h1>
+</section>
+
+<section class="indent" id="add">
+    <h2 class="heading">ADD NEW DISH</h2>
+    <form action="addDish" method="POST" onchange="addImgDir()">
+        <input type="text" name="name" placeholder="Name">
+        <select name="type">
+            <option value="Nigiri">Nigiri</option>
+            <option value="Makimono">Makimono</option>
+            <option value="Gunkan">Gunkan</option>
+            <option value="Sashimi">Sashimi</option>
+            <option value="Tempura">Tempura</option>
+            <option value="More">More</option>
+        </select>
+        <input type="text" name="cost" placeholder="Cost">
+        <input type="text" name="description" placeholder="Description">
+        <input type="hidden" name="img">
+        <input type="submit" value="ADD" onclick="searchBtn()">
+    </form>
+</section>
+
+<section class="indent" id="list">
+    <h2 class="heading">ALL DISHES</h2>
+    <h3>SEARCH</h3>
+    <div id="search-form">
+        <input id="name" type="text" name="name" placeholder="Name">
+        <select id="type" name="type">
+            <option value="">Type</option>
+            <option value="Nigiri">Nigiri</option>
+            <option value="Makimono">Makimono</option>
+            <option value="Gunkan">Gunkan</option>
+            <option value="Sashimi">Sashimi</option>
+            <option value="Tempura">Tempura</option>
+            <option value="More">More</option>
+        </select>
+        <input id="cost" type="text" name="cost" placeholder="Cost">
+        <input id="description" type="text" name="description" placeholder="Description">
+        <input type="submit" value="SEARCH" onclick="searchBtn()">
+    </div>
+
+    <div id="search-list">
+        <span id="search-list-start"></span>
+        <h3>LIST</h3>
+        <p id="search-pagination"><span id="search-prev" onclick="searchPrev()">Prev</span><span id="search-page"></span><span id="search-next" onclick="searchNext()">Next</span></p>
+        <div id="dishes">
+            {{#each sushi}}
+                <div class="{{this.type}}">
+                    <img src="/{{this.img}}" alt="">
+                    <p class="dish-name">{{this.name}}</p>
+                    <p class="describe">{{this.description}}</p>
+                    <p class="price">{{this.cost}}$</p>
+                </div>
+            {{/each}}
+        </div>
+        <div id="empty" style="display: none;">Nothing was found</div>
+        <span id="search-list-end"></span>
+    </div>
+</section>
+
+<script src="/javascript/amenu.js"></script>
+

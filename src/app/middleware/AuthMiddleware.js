@@ -81,7 +81,7 @@ class authMiddleware {
         }
     }
 
-    // Check is User
+    // Check is Super
     checkIsSuper(req, res, next) {
         try {
             var cookies = cookie.parse(req.headers.cookie || '')
@@ -101,6 +101,28 @@ class authMiddleware {
             res.json('403')
         }
     }
+
+    // Check is Admin
+    checkIsAdmin(req, res, next) {
+        try {
+            var cookies = cookie.parse(req.headers.cookie || '')
+            var token = cookies.token
+            var data = jwt.verify(token, 'お前はもう死んでいる')
+            if (data) {
+                User.findById(data._id)
+                .then(user => {
+                    if(user.role == 'admin') {
+                        next()
+                    } else {
+                        res.json('403')
+                    }
+                })
+            }
+        } catch (err) {
+            res.json('403')
+        }
+    }
+
 
 }
 

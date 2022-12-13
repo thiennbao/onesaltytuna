@@ -1,0 +1,44 @@
+<section id="admin-contact-wallpaper">
+    <img src="/img/general/wallpaper-2.jpg" alt="">
+    <h1>CONTACT MANAGE</h1>
+</section>
+
+<section class="indent" id="list">
+    <h2 class="heading">CONTACT LIST</h2>
+    <h3>SEARCH</h3>
+    <div id="search-form">
+        <input id="name" type="text" name="name" placeholder="Name">
+        <input id="email" type="text" name="email" placeholder="Email">
+        <input id="phone" type="text" name="phone" placeholder="Phone">
+        <input id="address" type="text" name="address" placeholder="Address">
+        <input id="message" type="text" name="message" placeholder="Message">
+        <input type="submit" value="SEARCH" onclick="searchBtn()">
+    </div>
+
+    <div id="search-list">
+        <span id="search-list-start"></span>
+        <h3>LIST</h3>
+        <p id="search-pagination"><span id="search-prev" onclick="searchPrev()">Prev</span><span id="search-page"></span><span id="search-next" onclick="searchNext()">Next</span></p>
+        <div id="contacts">
+            {{#each contact}}
+                <div>
+                    <div class="info">
+                        <h3>Contact Info</h3>
+                        <p class="name"> Contact from {{this.name}}</p>
+                        <p class="email"> Email: {{this.email}}</p>
+                        {{#if this.phone}} <p class="phone"> Phone: {{this.phone}}</p> {{/if}}
+                        {{#if this.address}} <p class="address"> Address: {{this.address}}</p> {{/if}}
+                    </div>
+                    <div class="message">
+                        <h3>Message</h3>
+                        <p>{{this.message}}jlksdfjg dlfjglsk lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp  lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp  lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp  lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp  lksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp vlksdfjg dlfjglsk lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp lskdfjg sdlkfjgsldjf sdlfjgldjf sdljgsdl;f sdlgjdlfkjg sdklfjgdsl;fjg sdfjgdslfjg s kdfjgldsfjg s;ldjf gejr giejr goijerp gjejgd j</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <span id="search-list-end"></span>
+    </div>
+</section>
+
+<script src="/javascript/acontact.js"></script>
+

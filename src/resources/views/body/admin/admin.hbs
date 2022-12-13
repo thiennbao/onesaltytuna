@@ -1,25 +1,31 @@
 <section id="super-wallpaper">
     <img src="/img/general/wallpaper-2.jpg" alt="">
-    <h1>ADMIN</h1>
+    <h1>CLERK MANAGE</h1>
 </section>
 
-<section>
-    <h2 class="heading">CLERK MANAGER</h2>
-    <form action="/addmanager" method="POST">
+<section class="indent" id="add">
+    <h2 class="heading">ADD NEW CLERK</h2>
+    <form action="/admin/addClerk" method="POST" onchange="addAuth()">
         <input type="hidden" name="supername" id="supername">
         <input type="hidden" name="password">
         <input type="text" name="name" placeholder="Name">
-        <input type="tel" name="phone" placeholder="Phone">
-        <input type="text" name="email" placeholder="Email">
-        <input type="text" name="address" placeholder="Address">
+        <input type="text" name="phone" placeholder="Phone">
+        <input type="submit" value="ADD">
     </form>
-    {{#each action}}
-        <div>
+</section>
 
+<section class="indent">
+    <h2 class="heading">CLERK LIST</h2>
+    <div id="list">
+    {{#each super}}
+        <div>
+            <p>{{this.name}}</p>
+            <p>{{this.phone}}</p>
+            <p>{{this.email}}</p>
+            <p>{{this.address.detail}}</p>
         </div>
     {{/each}}
+    </div>
 </section>
 
-<section id="menu">
-    <h2 class="heading">MENU MANGAGE</h2>
-</section>
+<script src="/javascript/clerk.js"></script>

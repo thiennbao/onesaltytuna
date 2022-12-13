@@ -141,6 +141,47 @@ table, thead, tbody, tr, td {
     text-align: right;
 }
 
+#success {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+}
+#success-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: 50vh;
+    background-color: white;
+    color: $main-color;
+    box-shadow: 0px 0px 10px darkgray;
+
+}
+#success-box svg {
+    margin-left: 50%;
+    margin-top: 25%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
+#success-box p {
+    font-size: 25px;
+    text-align: center;
+}
+#success-box button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    border: $main-color solid 2px;
+    background-color: white;
+    color: $main-color;
+}
+
 
 // For small tablet & large phone
 @media screen and (min-width: 600px) {

@@ -153,7 +153,20 @@ class siteController {
         })
         .then(data => {
             res.clearCookie('cart')
-            res.redirect('/')
+            Sushi.find({})
+            .then(sushi => {
+                res.render('body/site/menu', {
+                    userSite: true,
+                    menu: true,
+                    isLoggedin: handlerbarsUtil.isLoggedin(req),
+                    username: handlerbarsUtil.getUsername(req),
+                    sushi: mongooseUtil.getData(sushi),
+                    success: true
+                })
+            })
+            .catch(err => {
+                res.json(err)
+            })
         })
         .catch(err => {
             res.json(err)

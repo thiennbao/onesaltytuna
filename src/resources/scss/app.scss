@@ -23,6 +23,9 @@ a {
 #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
     margin: 5%;
 }
+.indent {
+    margin: 5%;
+}
 
 // Site's Wallpaper
 [id$=wallpaper] {
@@ -188,6 +191,9 @@ footer h3 {
     #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
         margin: 10%;
     }
+    .indent {
+        margin: 10%;
+    }
     // Site's Wallpaper
     [id$=wallpaper] img {
         width: 100%;
@@ -257,6 +263,9 @@ footer h3 {
         font-size: 35px;
     }
     #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
+        margin: 5% 10%;
+    }
+    .indent {
         margin: 5% 10%;
     }
     // Site's Wallpaper

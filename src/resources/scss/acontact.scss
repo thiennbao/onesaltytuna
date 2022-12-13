@@ -1,0 +1,102 @@
+@import 'variables';
+
+#account a {
+    position: relative;
+}
+#account input {
+    position: absolute;
+    transform: translate(-50%, 100%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+#account a:hover {
+    color: $main-color;
+}
+
+
+#list h2 {
+    margin-top: 150px;
+}
+
+#search-form {
+    position: relative;
+    width: 50%;
+    padding-bottom: 75px;
+}
+input, select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: gray solid 1px;
+}
+input[type="submit"] {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 30px;
+    border: none;
+    background-color: $main-color;
+    color: white;
+    margin-top: 20px;
+}
+
+#search-list > p {
+    text-align: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 50%;
+    margin: 50px auto;
+}
+#search-list #search-prev, #search-next {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $main-color;
+}
+#search-list #search-prev {
+    float: left;
+}
+#search-list #search-next {
+    float: right;
+}
+#search-list #search-page {
+    display: inline-block;
+    width: 80px;
+    line-height: 30px;
+    background-color: $main-color;
+    color: white;
+}
+#search-list #empty {
+    line-height: 200px;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+    margin: 10px 10px 30px 10px;
+    box-shadow: 0px 0px 10px darkgray;
+}
+
+#contacts > div {
+    height: 250px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px darkgray;
+    overflow: hidden;
+}
+#contacts > div div {
+    padding: 10px 20px;
+}
+#contacts .info {
+    float: left;
+    width: 50%;
+    // background-color: pink;
+}
+#contacts .message {
+    height: 100%;
+    float: right;
+    width: 50%;
+}

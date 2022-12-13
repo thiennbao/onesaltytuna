@@ -1,12 +1,12 @@
 <!-- Wall -->
-<section id="menu-wallpaper">
+<section id="menu-wallpaper" {{#if success}}style="filter: blur(10px)"{{/if}}>
     <div>
         <img src="img/general/wallpaper-2.jpg" alt="">
     </div>
     <h1>MENU</h1>
 </section>
 <!-- Menu -->
-<section id="menu-menu">
+<section id="menu-menu"  {{#if success}}style="filter: blur(10px)"{{/if}}>
     <h2 class="heading">MENU</h2>
     <div id="dish-type">
         <div id="type-nigirizushi" class="menu-current">Nigiri</div>
@@ -29,7 +29,7 @@
 </section>
 
 <!-- Order -->
-<section id="cart">
+<section id="cart"  {{#if success}}style="filter: blur(10px)"{{/if}}>
     <div>
         <div id="cart-form">
             <h3>
@@ -60,7 +60,7 @@
 </section>
 
 <!-- Illustrative Images -->
-<section id="illustrative-image-more">
+<section id="illustrative-image-more"  {{#if success}}style="filter: blur(10px)"{{/if}}>
     <div style="background-image: url(img/menu/menu_gunkan-kani.jpg);"></div>
     <div style="background-image: url(img/menu/menu_sashimi-amaebi.jpg);"></div>
     <div style="background-image: url(img/menu/menu_makimono-karaisake.jpg);"></div>
@@ -68,5 +68,18 @@
     <div style="background-image: url(img/menu/menu_nigiri-unagi.jpg);"></div>
     <div style="background-image: url(img/menu/menu_nigiri-amaebi.jpg);"></div>
 </section>
+
+{{#if success}}
+    <div id="success">
+        <div id="success-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+            </svg>
+            <p>Order successfully !!!</p>
+            <a href="/"><button>Go to home</button></a>
+        </div>
+    </div>
+{{/if}} 
 
 <script src="/javascript/menu.js"></script>

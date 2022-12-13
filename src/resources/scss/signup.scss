@@ -31,6 +31,7 @@
     transform: translate(-50%);
     text-align: center;
     font-size: 15px;
+    width: 100%;
 }
 #signup-form p a {
     color: $main-color;
@@ -103,7 +104,6 @@
     background-color: white;
     color: $main-color;
     box-shadow: 0px 0px 10px darkgray;
-
 }
 #success-box svg {
     margin-left: 50%;
@@ -132,4 +132,47 @@
 #success-box button:hover {
     animation: button-bgcolor 0.25s forwards;
     cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    #signup-form {
+        left: 50%;
+        width: 50%;
+    }
+    #success-box {
+        width: 30vw;
+    }
+    #success-box p {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #signup {
+        top: 60px;
+    }
+    #signup-form #address-input input {
+        width: 100%;
+    }
+    #signup-form #address-input select {
+        width: 49%;
+        height: 40px;
+        outline: none;
+        border: none;
+        border-bottom: lightgreen solid 2px;
+        font-size: 15px;
+        padding-bottom: 1px;
+        margin-top: 4%;
+    }
+    #success-box {
+        width: 40vw;
+    }
+}
+@media screen and (max-width: 660px) {
+    #signup-form {
+        width: 80%;
+        padding: 20px;
+    }
+    #success-box {
+        width: 60vw;
+    }
 }

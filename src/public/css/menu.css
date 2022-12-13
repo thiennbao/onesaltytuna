@@ -230,3 +230,65 @@ table, thead, tbody, tr, td {
     font-size: 15px;
     height: 30px;
     width: 30px; } }
+
+#success {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh; }
+
+#success-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  height: 50vh;
+  background-color: white;
+  color: #D3232D;
+  box-shadow: 0px 0px 10px darkgray; }
+
+#success-box svg {
+  margin-left: 50%;
+  margin-top: 25%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px; }
+
+#success-box p {
+  font-size: 25px;
+  text-align: center; }
+
+#success-box button {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 30px;
+  margin-top: 15px;
+  border: #D3232D solid 2px;
+  background-color: white;
+  color: #D3232D; }
+
+@keyframes button-bgcolor {
+  to {
+    background-color: #D3232D;
+    color: white; } }
+
+#success-box button:hover {
+  animation: button-bgcolor 0.25s forwards;
+  cursor: pointer; }
+
+@media screen and (max-width: 992px) {
+  #success-box {
+    width: 30vw; }
+  #success-box p {
+    font-size: 20px; } }
+
+@media screen and (max-width: 768px) {
+  #success-box {
+    width: 40vw; } }
+
+@media screen and (max-width: 660px) {
+  #success-box {
+    width: 60vw; } }

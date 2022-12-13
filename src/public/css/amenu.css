@@ -1,0 +1,84 @@
+#account a {
+  position: relative; }
+
+#account input {
+  position: absolute;
+  transform: translate(-50%, 100%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer; }
+
+#account a:hover {
+  color: #D3232D; }
+
+#logout {
+  width: 100%; }
+
+#add h2 {
+  margin-top: 150px; }
+
+#add form, #search-form {
+  position: relative;
+  width: 50%;
+  height: 300px; }
+
+input, select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  border-bottom: gray solid 1px; }
+
+input[type="submit"] {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 30px;
+  border: none;
+  background-color: #D3232D;
+  color: white;
+  margin-top: 20px; }
+
+#search-list > p {
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 50%;
+  margin: 50px auto; }
+
+#search-list #search-prev, #search-next {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #D3232D; }
+
+#search-list #search-prev {
+  float: left; }
+
+#search-list #search-next {
+  float: right; }
+
+#search-list #search-page {
+  display: inline-block;
+  width: 80px;
+  line-height: 30px;
+  background-color: #D3232D;
+  color: white; }
+
+#search-list #empty {
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+  margin: 10px 10px 30px 10px;
+  box-shadow: 0px 0px 10px darkgray; }
+
+#dishes {
+  justify-content: left; }
+
+#dishes div {
+  margin-right: 10px; }

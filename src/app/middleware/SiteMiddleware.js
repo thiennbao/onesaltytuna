@@ -1,4 +1,5 @@
 const cookie = require('cookie')
+const jwt = require('jsonwebtoken')
 
 class siteMiddleware {
 
@@ -12,7 +13,8 @@ class siteMiddleware {
                 next()
             }
         } catch (err) {
-            res.redirect('/auth/login')
+            // res.redirect('/auth/login')
+            res.json('err')
         }
     }
 

@@ -20,6 +20,9 @@ a {
 #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
   margin: 5%; }
 
+.indent {
+  margin: 5%; }
+
 [id$=wallpaper] {
   position: relative;
   top: 60px;
@@ -168,6 +171,8 @@ footer h3 {
     font-size: 30px; }
   #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
     margin: 10%; }
+  .indent {
+    margin: 10%; }
   [id$=wallpaper] img {
     width: 100%; }
   nav {
@@ -213,6 +218,8 @@ footer h3 {
     position: relative;
     font-size: 35px; }
   #about, #menu, #news, footer, #about-special, #menu-menu, #contact-form, #order, #user-info {
+    margin: 5% 10%; }
+  .indent {
     margin: 5% 10%; }
   [id$=wallpaper] {
     top: 80px;

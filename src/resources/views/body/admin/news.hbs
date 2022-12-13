@@ -1,0 +1,59 @@
+<section id="admin-news-wallpaper">
+    <img src="/img/general/wallpaper-2.jpg" alt="">
+    <h1>NEWS MANAGE</h1>
+</section>
+
+<section class="indent" id="add">
+    <h2 class="heading">ADD NEWS</h2>
+    <form action="addNews" method="POST" onchange="addImgDir()">
+        <input type="text" name="name" placeholder="Name">
+        <input type="date" name="date">
+        <textarea name="content" id="" placeholder="Content"></textarea>
+        <input type="hidden" name="img">
+        <input type="submit" value="ADD" onclick="searchBtn()">
+    </form>
+</section>
+
+<section class="indent" id="list">
+    <h2 class="heading">ALL NEWS</h2>
+    <h3>SEARCH</h3>
+    <div id="search-form">
+        <input id="name" type="text" name="name" placeholder="Search">
+        <input type="submit" value="SEARCH" onclick="searchBtn()">
+    </div>
+
+    <div id="search-list">
+        <span id="search-list-start"></span>
+        <h3>LIST</h3>
+        <p id="search-pagination"><span id="search-prev" onclick="searchPrev()">Prev</span><span id="search-page"></span><span id="search-next" onclick="searchNext()">Next</span></p>
+        <div id="news">
+            <div id="news-item">
+                {{#each news}}
+                    <div>
+                        <img src="/{{this.img}}" alt="">
+                        <h3>{{this.name}}</h3>
+                        <p>{{this.date}}</p>
+                        <button onclick="newsOpen('{{this._id}}')">Detail</button>
+                    </div>
+                {{/each}}
+            </div>
+                {{#each news}}
+                    <div class="news-detail" id="{{this._id}}" style="display: none;">
+                        <button class="news-close" onclick="newsClose('{{this._id}}')">X</button>
+                        <img src="/{{this.img}}" alt="{{this.name}}">
+                        <div>
+                            <h3>{{this.name}}</h3>
+                            <p class="news-date">{{this.date}}</p>
+                            <p class="news-content">{{this.content}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <div id="empty" style="display: none;">Nothing was found</div>
+            <span id="search-list-end"></span>
+            </div>
+        </div>
+
+
+<script src="/javascript/anews.js"></script>
+
