@@ -48,7 +48,7 @@ class authMiddleware {
                     if(username == user.username) {
                         next()
                     } else {
-                        res.json('403')
+                        res.render('body/error/error', {err403: true})
                     }
                 })
                 .catch(err => {
@@ -70,7 +70,7 @@ class authMiddleware {
                 User.findById(data._id)
                 .then(user => {
                     if(user.role == 'super' || user.role == 'admin') {
-                        res.json('403')
+                        res.render('body/error/error', {err403: true})
                     } else {
                         next()
                     }
@@ -93,12 +93,12 @@ class authMiddleware {
                     if(user.role == 'super') {
                         next()
                     } else {
-                        res.json('403')
+                        res.render('body/error/error', {err403: true})
                     }
                 })
             }
         } catch (err) {
-            res.json('403')
+            res.render('body/error/error', {err403: true})
         }
     }
 
@@ -114,12 +114,12 @@ class authMiddleware {
                     if(user.role == 'admin') {
                         next()
                     } else {
-                        res.json('403')
+                        res.render('body/error/error', {err403: true})
                     }
                 })
             }
         } catch (err) {
-            res.json('403')
+            res.render('body/error/error', {err403: true})
         }
     }
 

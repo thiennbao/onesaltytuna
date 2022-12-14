@@ -20,6 +20,7 @@ router.post('/submitOrder', siteController.submitOrder)
 
 // Homepage
 router.get('/', authMiddleware.checkIsUser, siteController.home)
+router.get('/:slug', (req, res) => { res.render('body/error/error', {err404: true})})
 
 
 module.exports = router

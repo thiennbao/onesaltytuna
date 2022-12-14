@@ -1,4 +1,4 @@
-<div id="user-setting" {{#if success}}style="filter: blur(10px)"{{/if}}>
+<div id="user-setting">
     <div>
         <div id="btn">
             <div id="ch-userinfo" class="btn-current">User information</div>
@@ -57,7 +57,7 @@
                 <h3>CHANGE PASSWORD</h3>
                 <form method="POST" action="changePassword" id="ch-password-form">
                     <input id="password" type="password" name="password" placeholder="Old password" onblur="passwordValidate()">
-                    <label for="password"></label>
+                    <label for="password">{{#if wrongPass}}Wrong password{{/if}}</label>
                     <input id="new-password" type="password" name="newPassword" placeholder="New password" onblur="newPasswordValidate()">
                     <label for="new-password"></label>
                     <input id="submit-password" type="password" placeholder="Submit new password" onblur="submitPasswordValidate()">

@@ -14,5 +14,4 @@ router.post('/changeUserInfo', userController.changeUserInfo)
 router.post('/changePassword', userController.changePassword)
 router.post('/changeCard', userController.changeCard)
 
-
 module.exports = router

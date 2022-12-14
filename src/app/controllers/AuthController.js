@@ -48,18 +48,27 @@ class authController {
                                 break
                         }
                     } else {
-                        res.json('Wrong password')
+                        res.render('body/auth/login', {
+                            userSite: true,
+                            login: true,
+                            loginUser: req.body.username,
+                            wrongPass: true
+                        })
                     }
                 })
 
 
             } else {
-                res.send('Username not found')
+                res.render('body/auth/login', {
+                    userSite: true,
+                    login: true,
+                    notFound: true
+                })
             }
 
         })
         .catch(err => {
-            res.json('Loi sever')
+            res.send('ERROR')
         })
     }
 

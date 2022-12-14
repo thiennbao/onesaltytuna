@@ -28,7 +28,7 @@ class superController {
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -60,11 +60,11 @@ class superController {
                 })
             })
             .catch(err => {
-                res.json(err)
+                res.send('ERROR')
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -78,7 +78,7 @@ class superController {
             res.redirect('super/list')
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -110,11 +110,11 @@ class superController {
                 })
             })
             .catch(err => {
-                res.json(err)
+                res.send('ERROR')
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -125,9 +125,7 @@ class superController {
             username: handlerbarsUtil.getUsername(req)
         })
         .then(user => {
-            Order.find({
-                status: 'closed'
-            })
+            Order.find({})
             .then(order => {
                 res.render('body/super/search', {
                     superSite: true,
@@ -137,11 +135,11 @@ class superController {
                 })
             })
             .catch(err => {
-                console.log(err)
+                res.send('ERROR')
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -162,7 +160,7 @@ class superController {
             res.redirect(`/super/${handlerbarsUtil.getUsername(req)}`)
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -190,7 +188,27 @@ class superController {
                             })
                         })
                     } else {
-                        res.json('Wrong password')
+                        User.findOne({
+                            username: handlerbarsUtil.getUsername(req)
+                        })
+                        .then(user => {
+                            res.render('body/super/super', {
+                                username: handlerbarsUtil.getUsername(req),
+                                superSite: true,
+                                userSetting: true,
+                                user: {
+                                    name: user.name,
+                                    phone: user.phone,
+                                    email: user.email,
+                                    address: user.address,
+                                    card: user.card,
+                                },
+                                wrongPass: true
+                            })
+                        })
+                        .catch(err => {
+                            res.send('ERROR')
+                        })
                     }
                 })
             } else {
@@ -198,7 +216,7 @@ class superController {
             }
         })
         .catch(err => {
-            console.log(err)
+            res.send('ERROR')
         })
     }
 

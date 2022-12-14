@@ -34,8 +34,7 @@ class siteController {
 
         })
         .catch(err => {
-            console.log(err)
-            res.status(500).send('ERROR !!!')
+            res.send('ERROR')
         })
 
     }
@@ -63,7 +62,7 @@ class siteController {
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -90,7 +89,7 @@ class siteController {
             res.redirect('/contact')
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -122,7 +121,7 @@ class siteController {
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -165,11 +164,11 @@ class siteController {
                 })
             })
             .catch(err => {
-                res.json(err)
+                res.send('ERROR')
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 

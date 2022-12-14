@@ -18,7 +18,8 @@
   justify-content: space-around;
   line-height: 50px;
   text-align: center;
-  font-size: 15px; }
+  font-size: 15px;
+  margin-bottom: 30px; }
 
 #menu-menu #dish-type div {
   width: 30%;
@@ -279,16 +280,52 @@ table, thead, tbody, tr, td {
   animation: button-bgcolor 0.25s forwards;
   cursor: pointer; }
 
+#search-box {
+  width: 60%;
+  margin-bottom: 50px; }
+
+#search-box input {
+  width: 80%;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: gray solid 1px; }
+
+#search-box input[type="submit"] {
+  width: 20%; }
+
+#dishes {
+  justify-content: unset; }
+
+#dishes > div {
+  margin: 0.5%; }
+
 @media screen and (max-width: 992px) {
   #success-box {
     width: 30vw; }
   #success-box p {
-    font-size: 20px; } }
+    font-size: 20px; }
+  #search-box {
+    width: 80%; } }
 
 @media screen and (max-width: 768px) {
   #success-box {
-    width: 40vw; } }
+    width: 40vw; }
+  #search-box {
+    width: 100%; } }
 
 @media screen and (max-width: 660px) {
   #success-box {
-    width: 60vw; } }
+    width: 60vw; }
+  #search-box input {
+    height: 30px; }
+  #search-box input[type="submit"] {
+    width: 25%;
+    height: 30px;
+    padding: 0; }
+  #dishes {
+    justify-content: space-around; }
+  #dishes > div {
+    margin: 0; } }

@@ -2,7 +2,7 @@
     <div id="login-form">
         <h3>Log in</h3>
         <form method="POST" action="login">
-            <input id="username" type="text" name="username" placeholder="User name" onblur="validate()">
+            <input id="username" type="text" name="username" placeholder="User name" onblur="validate()" value="{{loginUser}}">
             <label for="username"> {{#if notFound}} User name is not found {{/if}} </label>
             <input id="password" type="password" name="password" placeholder="Password" onblur="validate()">
             <label for="password"> {{#if wrongPass}} Wrong password {{/if}} </label>

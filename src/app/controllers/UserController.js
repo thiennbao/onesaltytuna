@@ -29,7 +29,7 @@ class userController {
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -51,7 +51,7 @@ class userController {
             res.redirect(`/user/${handlerbarsUtil.getUsername(req)}`)
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -77,7 +77,7 @@ class userController {
             res.redirect(`/user/${handlerbarsUtil.getUsername(req)}`)
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -106,7 +106,30 @@ class userController {
                             })
                         })
                     } else {
-                        res.json('Wrong password')
+                        User.findOne({
+                            username: handlerbarsUtil.getUsername(req)
+                        })
+                        .then(user => {
+                            res.render('body/user/user', {
+                                userSite: true,
+                                userSetting: true,
+                                isLoggedin: handlerbarsUtil.isLoggedin(req),
+                                username: handlerbarsUtil.getUsername(req),
+                                cart: handlerbarsUtil.getCart(req),
+                                user: {
+                                    userSite: true,
+                                    name: user.name,
+                                    phone: user.phone,
+                                    email: user.email,
+                                    address: user.address,
+                                    card: user.card,
+                                },
+                                wrongPass: true
+                            })
+                        })
+                        .catch(err => {
+                            res.send('ERROR')
+                        })
                     }
                 })
             } else {
@@ -114,7 +137,7 @@ class userController {
             }
         })
         .catch(err => {
-            res.json('Loi sever')
+            res.send('ERROR')
         })
     }
 

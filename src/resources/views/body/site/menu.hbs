@@ -8,6 +8,15 @@
 <!-- Menu -->
 <section id="menu-menu"  {{#if success}}style="filter: blur(10px)"{{/if}}>
     <h2 class="heading">MENU</h2>
+
+    <div id="search-box">
+        <input id="key" type="text" placeholder="Search">
+        <input id="cost" type="number" name="cost" placeholder="Cost">
+        <input type="submit" value="SEARCH" onclick="searchBtn()">
+        <input type="submit" value="CLEAR" onclick="clearBtn()">
+    </div>
+
+
     <div id="dish-type">
         <div id="type-nigirizushi" class="menu-current">Nigiri</div>
         <div id="type-makimono">Makimono</div>

@@ -18,5 +18,4 @@ router.post('/close', superController.close)
 router.post('/changeSuperInfo', superController.changeSuperInfo)
 router.post('/changePassword', superController.changePassword)
 
-
 module.exports = router

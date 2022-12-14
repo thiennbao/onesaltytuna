@@ -24,7 +24,7 @@ class adminController {
             })
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -78,7 +78,7 @@ class adminController {
             res.redirect('/admin/menu')
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 
@@ -107,7 +107,7 @@ class adminController {
             res.redirect('/admin/news')
         })
         .catch(err => {
-            res.json(err)
+            res.send('ERROR')
         })
     }
 

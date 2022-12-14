@@ -20,5 +20,7 @@ router.post('/addNews', adminController.addNews)
 // Contact manage
 router.get('/contact', authMiddleware.checkIsAdmin, adminController.contact)
 
+router.get('/:slug', (req, res) => { res.render('body/error/error', {err404: true})})
+
 
 module.exports = router

@@ -17,5 +17,7 @@ router.post('/logout', authController.logout)
 router.get('/signup',authMiddleware.checkLoggedin, authController.signup)
 router.post('/signup', authController.signupForm)
 
+router.get('/:slug', (req, res) => { res.render('body/error/error', {err404: true})})
+
 
 module.exports = router
