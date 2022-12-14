@@ -26,9 +26,9 @@ const route = require('./routes/route')
 route(app)
 
 // Sever
-// app.listen(process.env.PORT, function() {
-//     console.log('Connect to sever successfully')
-// })
-app.listen(3000, function() {
-    console.log('Connect to sever successfully, some bullshit happens at http://localhost:3000')
+app.listen(process.env.PORT, function() {
+    console.log('Connect to sever successfully')
 })
+// app.listen(3000, function() {
+//     console.log('Connect to sever successfully, some bullshit happens at http://localhost:3000')
+// })
