@@ -16,6 +16,7 @@
                     <p class="phone">{{this.phone}}</p>
                     <p class="address">{{this.address}}</p>
                     {{#if this.message}}<p class="message">{{this.message}}</p>{{/if}}
+                    <p class="status">{{this.status}}</p>
                     <p class="method">{{this.method}}</p>
                     <span class="card-btn" onclick="showCard('{{this._id}}')" style="visibility: hidden;">Show card info</span>
                 </div>
@@ -47,11 +48,18 @@
                     </tfoot>
                 </table> 
             </div>
-            <div class="confirm">
+            <div class="confirm" style="display: none;">
+                <form method="POST" action="/super/confirm">
+                    <input type="hidden" name="id" value="{{this._id}}">
+                    <input type="hidden" name="super">
+                    <input type="submit" value="CONFIRM">
+                </form>
+            </div>
+            <div class="close" style="display: none;">
                 <form method="POST" action="/super/close">
                     <input type="hidden" name="id" value="{{this._id}}">
                     <input type="hidden" name="super">
-                    <input type="submit" value="MARK AS DONE">
+                    <input type="submit" value="CLOSE">
                 </form>
             </div>
         </div>

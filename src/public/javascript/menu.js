@@ -98,7 +98,7 @@ for (let i = 0; i < illustrativeImageMore.length; i++) {
 
 
 function searchBtn() {
-    var key = $('#key').val(), cost = $('#cost').val()
+    var key = $('#key').val(), cost = Number($('#cost').val())
     if (!key) {key = null}
     if (!cost) {cost = null}
     dishes.each(function(index, dish) {
@@ -110,7 +110,7 @@ function searchBtn() {
         if (dish.children[2].innerText.toLowerCase().search(key) != -1) {
             document.querySelectorAll('#dishes > div')[index].style.display = 'block'
         }
-        if (dish.children[3].innerText.search(cost) != -1) {
+        if ( cost >= Number(dish.children[3].innerText.replace('$', ''))) {
             document.querySelectorAll('#dishes > div')[index].style.display = 'block'
         }
     })

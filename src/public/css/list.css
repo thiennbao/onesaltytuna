@@ -66,13 +66,13 @@ section {
   border-radius: 5px;
   cursor: pointer; }
 
-#order-list .confirm {
+#order-list .confirm, .close {
   position: relative;
   float: left;
   width: 40%;
   height: 100px; }
 
-#order-list .confirm input[type="submit"] {
+#order-list .confirm input[type="submit"], #order-list .close input[type="submit"] {
   position: absolute;
   left: 50%;
   top: 25%;
@@ -89,7 +89,7 @@ section {
     background-color: #D3232D;
     color: white; } }
 
-#order-list .confirm input[type="submit"]:hover {
+#order-list .confirm input[type="submit"]:hover, #order-list .close input[type="submit"]:hover {
   animation: button-bgcolor 0.25s forwards; }
 
 #order-list .order-content {

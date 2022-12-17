@@ -13,8 +13,7 @@ class siteMiddleware {
                 next()
             }
         } catch (err) {
-            // res.redirect('/auth/login')
-            res.json('err')
+            res.redirect('/auth/login')
         }
     }
 

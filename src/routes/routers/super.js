@@ -12,6 +12,7 @@ router.get('/search', authMiddleware.checkIsSuper, superController.search)
 router.get('/:user', authMiddleware.checkIsSuper, authMiddleware.checkUser, superController.super)
 
 // Close an order
+router.post('/confirm', superController.confirm)
 router.post('/close', superController.close)
 
 // Super setting

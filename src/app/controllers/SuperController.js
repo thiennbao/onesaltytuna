@@ -47,7 +47,7 @@ class superController {
         })
         .then(user => {
             Order.find({
-                status: 'in process'
+                status: ['in process', 'confirmed']
             })
             .skip(start)
             .limit(pageSize)
@@ -68,6 +68,20 @@ class superController {
         })
     }
 
+    // POST confirm
+    confirm(req, res) {
+        Order.findByIdAndUpdate(req.body.id, {
+            supername: req.body.super,
+            status: 'confirmed'
+        })
+        .then(order => {
+            res.redirect('/super/list')
+        })
+        .catch(err => {
+            res.send('ERROR')
+        })
+    }
+
     // POST close
     close(req, res) {
         Order.findByIdAndUpdate(req.body.id, {
@@ -75,7 +89,7 @@ class superController {
             status: 'closed'
         })
         .then(order => {
-            res.redirect('super/list')
+            res.redirect('/super/list')
         })
         .catch(err => {
             res.send('ERROR')

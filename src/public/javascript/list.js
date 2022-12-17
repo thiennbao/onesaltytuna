@@ -39,6 +39,7 @@ function loadPage(pg) {
             $('#order-list').html(list)
             $('#order-page').text(pg)
             fillTable()
+            showBtn()
         } else {
             page--
         }
@@ -84,4 +85,15 @@ function showCard(id) {
 function hideCard(id) {
     $(`#card-${id}`).hide()
     $(`#user-${id}`).show()
+}
+
+function showBtn(id) {
+    var status = document.querySelectorAll('.status')
+    status.forEach((item) => {
+        if (item.innerText == 'in process') {
+            item.parentElement.parentElement.parentElement.children[2].style.display = 'block'
+        } else {
+            item.parentElement.parentElement.parentElement.children[3].style.display = 'block'
+        }
+    })
 }

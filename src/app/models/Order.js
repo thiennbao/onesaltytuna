@@ -18,7 +18,8 @@ const Order = Schema({
     content: {type: String},
     ship: {type: Number},
     supername: {type: String, default: ''},
-    status: {type: String, default: 'in process'}
+    status: {type: String, default: 'in process'},
+    paystatus: {type: String, default: 'unpaid'}
 }, {
     timestamps: {
         createdAt: 'created_at',

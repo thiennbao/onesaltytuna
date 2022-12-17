@@ -44,6 +44,10 @@ section {
   content: 'In process';
   font-size: 15px; }
 
+#search-form input[value="confirmed"]::before {
+  content: 'Confirmed';
+  font-size: 15px; }
+
 #search-form input[value="closed"]::before {
   content: 'Closed';
   font-size: 15px; }
