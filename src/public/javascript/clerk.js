@@ -3,6 +3,6 @@ function addAuth() {
     var phone = $('input[name="phone"]').val()
     name = name.trim().toLowerCase().replaceAll(' ', '')
     $('input[name="supername"]').val(name)
-    var pwString = `pw${name}${phone}`
+    var pwString = `${name}${phone}`
     $('input[name="password"]').val(pwString)
 }
